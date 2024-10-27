@@ -31,3 +31,4 @@ creating new app using create-react-app:
 4. Essential Javascript for React:
    quokka.js install extension
    command pallete -> quokka.js start
+   rest operator should be the last in the array/object

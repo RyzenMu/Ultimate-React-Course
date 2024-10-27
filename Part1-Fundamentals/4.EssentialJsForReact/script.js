@@ -162,3 +162,5 @@ console.log(g);
 
 const [p1] = genres;
 console.log(p1);
+
+//REST AND SPREAD OPERATOR
