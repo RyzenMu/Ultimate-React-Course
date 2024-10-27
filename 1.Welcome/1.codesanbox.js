@@ -31,4 +31,3 @@ function Message(props) {
     </p>
   );
 }
-
