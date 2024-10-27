@@ -27,3 +27,7 @@ one needs to react first to learn next or remix.
 creating new app using create-react-app:
 
 1.npx create-react-app@5 pizza-menu
+
+4. Essential Javascript for React:
+   quokka.js install extension
+   command pallete -> quokka.js start
