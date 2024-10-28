@@ -164,3 +164,30 @@ const [p1] = genres;
 console.log(p1);
 
 //REST AND SPREAD OPERATOR
+
+const newGenres = [...genres, "newGenre1", "newGenre2", "newGenre3"];
+console.log(newGenres);
+
+// rest and spread in objects
+function A() {
+  const { id, title, ...newObj } = getBook(3);
+  console.log(id, title);
+  console.log(newObj);
+}
+A();
+
+const newObj = {
+  //adding new property
+  color: "black",
+  isbn: true,
+  ...getBook(5),
+  //updating existing property
+  pages: 651,
+};
+newObj;
+
+// Template literals
+const summary = `${title} is a book contains ${pages} pages was written by ${author} and published in ${
+  publicationDate.split("-")[0]
+}`;
+summary;
