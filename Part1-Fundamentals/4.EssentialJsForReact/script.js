@@ -191,3 +191,16 @@ const summary = `${title} is a book contains ${pages} pages was written by ${aut
   publicationDate.split("-")[0]
 }`;
 summary;
+
+// Ternary Operator
+pages > 100 ? console.log("Y") : console.log("N");
+
+//Arrow Functions
+(() => console.log(publicationDate.split("-")[0]))();
+
+//Function Expression
+const year = (str) => str.split("-")[0];
+console.log(year(publicationDate) + 5);
+
+//Short circuting
+// and and or operator have short circuting
