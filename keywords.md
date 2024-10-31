@@ -32,3 +32,13 @@ creating new app using create-react-app:
    quokka.js install extension
    command pallete -> quokka.js start
    rest operator should be the last in the array/object
+   spread operator
+   template literals
+   terenary operator
+   arrow functions
+   function expression
+   short circuting with and operator
+   short circuting with or opertor
+   falsy values
+   nullishish coallising operator
+   
