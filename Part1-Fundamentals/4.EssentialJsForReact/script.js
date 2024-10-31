@@ -204,3 +204,32 @@ console.log(year(publicationDate) + 5);
 
 //Short circuting
 // and and or operator have short circuting
+
+// and operator
+console.log(true && "Some String");
+console.log(false && "Some String");
+console.log(8 == 2 && "Some String");
+console.log(hasMovieAdaptation && "this book has a movie");
+
+//falsy values\
+//0,'', null, undefined
+console.log("jonas" && "Some String");
+console.log(0 && "Some String");
+
+//OR Operator
+console.log(true || "Sone string0");
+console.log(false || "Sone string0");
+
+console.log(book.translations.spanish);
+const spanishTranslation = book.translations.spanish;
+console.log(spanishTranslation || "Not Translated");
+
+// zero may be misinterperted
+console.log(book.reviews.librarything.reviewsCount);
+const countWrong = book.reviews.librarything.reviewsCount;
+console.log(countWrong || "No data");
+
+// Nullish Collasing Operator
+// Nullish collasing operator is used instead of or operator
+// if you want zero count then use nullish collasing operator
+console.log(book.reviews.librarything?.reviewsCount ?? "No data");
