@@ -41,4 +41,13 @@ creating new app using create-react-app:
    short circuting with or opertor
    falsy values
    nullishish coallising operator
-   
+   short circuting anfd logical operators
+   optional chaining ?. helps in accessing safely nested properties
+   functional array methods are map, reduce and filter.
+   these functional array methods do not mutate original arrays
+   the reduce methods has two arguments, the callback function ND INITIAL VALUE, usually 0;
+   the callback function in reduce method also take two arguments previous value and current value;
+   Sort method will mutate the array.
+   to make immutable array use .slice().
+
+   Always use slice() TO MAKE THE ARRAY IMMUTABLE.

@@ -112,7 +112,7 @@ const data = [
     publicationDate: "1996-08-01",
     author: "George R. R. Martin",
     genres: ["fantasy", "high-fantasy", "novel", "fantasy fiction"],
-    hasMovieAdaptation: true,
+    hasMovieAdaptation: false,
     pages: 835,
     translations: {
       korean: "왕좌의 게임",
@@ -142,7 +142,7 @@ function getBooks() {
 function getBook(id) {
   return data.find((d) => d.id === id);
 }
-
+/*
 //DESTRUCTURING
 
 const books = getBooks();
@@ -233,3 +233,143 @@ console.log(countWrong || "No data");
 // Nullish collasing operator is used instead of or operator
 // if you want zero count then use nullish collasing operator
 console.log(book.reviews.librarything?.reviewsCount ?? "No data");
+
+// Short Circuting and Logical Operators
+console.log(true && "SOme String");
+console.log(false && "SOme String");
+// shorting circuting in and operator works when the first condition is false
+console.log(hasMovieAdaptation && "Tis book has a movie adaptation");
+
+// falsy : 0, '', null , undefined
+console.log("Jonas" && "Jonas Shedmedsmann is a fantastic Tutor");
+console.log("" && "Alexa Nd ciri");
+
+// nullish coaaelising operqator
+// ??
+const green1 = 0;
+const green2 = "";
+const green3 = null;
+const green4 = undefined;
+console.log(green1 ?? "some string");
+console.log(green2 ?? "some string");
+
+// null and undefined has values
+console.log(green3 ?? "some string");
+console.log(green4 ?? "some string");
+
+//Optional Chaining
+// ?.
+// used for safely access deeply nested objects.
+console.log(book?.reviews?.goodreads?.ratingsCount);
+console.log(book?.reviews?.librarything?.ratingsCount);
+
+function getTotalReviewsCount(book) {
+  let total = 0;
+  const goodReadsCount = book?.reviews?.goodreads?.reviewsCount ?? 0;
+  const librarythingCount = book?.reviews?.librarything?.reviewsCount ?? 0;
+  total = goodReadsCount + librarythingCount;
+  return total;
+}
+
+console.log(getTotalReviewsCount(book));
+*/
+
+// Array -- Maps, Reduce, Filter
+/*
+const array1 = [2, 4, 6, 8];
+
+const arrayMap = array1.map((item) => item * item + 5);
+console.log(arrayMap);
+
+const arrayFilter = array1.filter((item) => item < 5);
+console.log(arrayFilter);
+
+const arrayReduce = array1.reduce((pre, current) => pre + current);
+console.log(arrayReduce);
+*/
+
+// maps
+const books = getBooks();
+
+const titles = books.map((el) => el.title);
+
+console.log(titles);
+const essentialData = books.map((book) => ({
+  title: book.title,
+  author: book.author,
+  reviewsCount: getTotalReviewsCount(book),
+}));
+console.log(essentialData);
+function getTotalReviewsCount(book) {
+  let total = 0;
+  const goodReadsCount = book?.reviews?.goodreads?.reviewsCount ?? 0;
+  const librarythingCount = book?.reviews?.librarything?.reviewsCount ?? 0;
+  total = goodReadsCount + librarythingCount;
+  return total;
+}
+
+// Filter
+const longBooks = books
+  .filter((book) => book.pages > 500)
+  .filter((book) => book.hasMovieAdaptation);
+console.log(longBooks);
+
+const novelBooks = books
+  .filter((book) => book.genres.includes("novel"))
+  .map((book) => book.title);
+console.log(novelBooks);
+
+// Reduce Method
+const pagesAllBooks = books.reduce((sum, book) => sum + book.pages, 0);
+console.log(pagesAllBooks);
+
+// SORT
+const array2 = [3, 7, 1, 9, 6];
+const array3 = array2.slice().sort((a, b) => a - b);
+const array4 = array2.slice().sort((a, b) => b - a);
+array2;
+array3;
+array4;
+
+// sorting the books on number of pages
+
+const sortByPages = books
+  .slice()
+  .map((book) => book.pages)
+  .sort((a, b) => a - b);
+console.log(sortByPages);
+
+const sortedByPages = books.slice().sort((a, b) => a.pages - b.pages);
+console.log(sortedByPages);
+
+// Immutable Arrays
+// 1. add Book Object to an array
+const newBook = {
+  id: 6,
+  title: "Harry Potter and the secret of Chambers",
+  author: "J. K. Rowling",
+};
+
+const booksAfterAdding = [...books, newBook];
+console.log(booksAfterAdding);
+
+//2. delete an array
+const array5 = [435, 756, 876, 423, 689];
+const elementToRemove = array5.indexOf(876);
+const array6 = array5.slice();
+array6.splice(elementToRemove, 1);
+console.log(array6);
+
+const booksAFterDelete = booksAfterAdding.filter((book) => book.id !== 6);
+console.log(booksAFterDelete);
+
+// 3. update an object in book array
+const findIndex = books.find((book) => book.id === 5);
+console.log(findIndex);
+findIndex.pages = 1000;
+console.log(findIndex);
+
+const booksAfterUpdate = booksAFterDelete.map((book) =>
+  book.id === 5 ? { ...book, pages: 1210 } : book
+);
+console.log(booksAfterUpdate);
