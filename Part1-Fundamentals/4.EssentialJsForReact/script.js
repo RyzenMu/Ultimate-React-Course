@@ -288,6 +288,7 @@ const arrayReduce = array1.reduce((pre, current) => pre + current);
 console.log(arrayReduce);
 */
 
+/*
 // maps
 const books = getBooks();
 
@@ -373,3 +374,20 @@ const booksAfterUpdate = booksAFterDelete.map((book) =>
   book.id === 5 ? { ...book, pages: 1210 } : book
 );
 console.log(booksAfterUpdate);
+*/
+
+// Asynchronous Javascript promises
+/*fetch("https://jsonplaceholder.typicode.com/todos")
+  .then((response) => response.json())
+  .then((data) => console.log(data));
+
+console.log("jonas");*/
+
+// Async Await
+async function getToDos() {
+  const response = await fetch("https://jsonplaceholder.typicode.com/todos");
+  const data = await response.json();
+  console.log(data);
+}
+getToDos();
+console.log("Jonas");

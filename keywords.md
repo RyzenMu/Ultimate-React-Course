@@ -51,3 +51,30 @@ creating new app using create-react-app:
    to make immutable array use .slice().
 
    Always use slice() TO MAKE THE ARRAY IMMUTABLE.
+
+   promises
+   async await
+
+5. Working with Components Props and Jsx
+   Rendering the root component and strict mode
+   import react and react dom
+   create component (function)
+   render the component
+   code Debugging
+   Components are the building blocks
+   data are passed to the components using props
+   Component tree is a plan
+   reusing components is the fundamental concept of usoing react
+   Component has its own data, logic and apperance.
+   JSX -declarative syntax how they look like
+   components must return a block of jsx
+   Babel is a tool that converts jsx to html
+   Babel is automatically included in react
+   Browers do not understand jsx, they only understand html.
+   we could use react without jsx., but it is cumbersome
+   Declarative is we dont tell react how to do
+   Jsx is declative
+   Imperative is we tell how to do like, create element, add event listerner, etc
+   vanilla js is imperative
+
+   Declarative --Describe what UI should look like using JSX, based on current data (props abd state)
