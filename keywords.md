@@ -108,3 +108,25 @@ creating new app using create-react-app:
    one -way data flow is more performant than two way data-flow
 
    challenge one - profile Card
+   JSX - uses {} to get values
+   we can place javascript expressions inside {} like reference variables, create arrays or objects,[].map, ternary operator
+   we cannot use javascript statements like if/else, for loop, and switch
+   jsx produces a javascript expressions
+   key is a prop in react used for performance improvements.
+   every key should be unique
+   map creates a new array
+   foreach iterates a array and does not return any value.
+   Always use map in React
+   do not use foreach in react jsx
+   react do not render true or false
+   react do render number 0
+
+   three ways of conditional rendering
+
+   1. short circuting
+   2. ternary operator
+   3. conditional rendering with multiple returns (early returns)
+
+   destructing objects instead of props.
+   React Fragments are used to render all the html elements separately without a parent tag.
+   conditionally set classNames and conditionally set text
