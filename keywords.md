@@ -78,3 +78,10 @@ creating new app using create-react-app:
    vanilla js is imperative
 
    Declarative --Describe what UI should look like using JSX, based on current data (props abd state)
+
+   Separation of concerns
+   before SPA , there are html page, css page and js page combined for web.
+   one technology per page is called separation of concens.
+   As pages got more and more interactive SPA originated, js became incharge of html and css.
+   react also has separtion of concers, i.e. one component one concern.
+   styling in react is using two set of {{}} one for value and another for object.
