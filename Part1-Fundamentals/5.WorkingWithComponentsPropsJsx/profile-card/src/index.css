@@ -1,0 +1,12 @@
+img {
+  width: 50vw;
+}
+
+.container {
+  border: 2px solid black;
+  width: 50vw;
+}
+
+ul {
+  list-style: none;
+}

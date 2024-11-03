@@ -85,3 +85,26 @@ creating new app using create-react-app:
    As pages got more and more interactive SPA originated, js became incharge of html and css.
    react also has separtion of concers, i.e. one component one concern.
    styling in react is using two set of {{}} one for value and another for object.
+   passing data between components is called props
+   data is passed between parent component and child component through props
+   props are essentaial tool to configure and customize components
+   with propsparents component control how child component look and work
+   Anything can be passed as props single values, arrays, objects, functions, and even components
+   props are read only
+   data = props + state
+   props are immutable
+   state are mutable
+   props are the data coming from the outside and an be only updated by thye read component
+   state is the internal datathat can be updated by the components logic
+   props is immutable , it is one of the reacts strict rule.
+   Mutating prop would affect parent component, creating side effects (not pure).
+   usuallu side effects happen when a function changes data outside of the function.
+   react is all about pure functions, so functions without side effects
+   components should be pure in props and state.
+   these pure components allows react to optimize apps, avoid bugs, make apps pretictable.
+   react uses one-way data flow. i.e parent component -> child component
+   angular uses two-way data flow
+   one-way data flow is essential for more predictable and easier to understand.
+   one -way data flow is more performant than two way data-flow
+
+   challenge one - profile Card
