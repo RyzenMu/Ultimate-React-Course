@@ -130,3 +130,5 @@ creating new app using create-react-app:
    destructing objects instead of props.
    React Fragments are used to render all the html elements separately without a parent tag.
    conditionally set classNames and conditionally set text
+
+   6. Handling Events , State , Forms , Controlled Elements in React
