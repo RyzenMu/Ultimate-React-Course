@@ -132,3 +132,22 @@ creating new app using create-react-app:
    conditionally set classNames and conditionally set text
 
    6. Handling Events , State , Forms , Controlled Elements in React
+      State is the most important concept in react
+      there are 3 state concepts, useState, useReducer and Context API
+      state is a data that a component hold over a time.
+      simple examples are notifications count, messages count, content of a shopping kart
+      state varible / piece of state : A single variable in a component
+      state is components memory
+      updating state causes react to re-render
+      state allows you to update components view
+      persists local variables between renders
+      step 1 -- a new state variable
+      step 2 -- use it in jsx
+      step 3 --update piece of state in some event handler
+      All the react functions prefixed use is called Hooks
+      Hooks cane be used only in react.
+      hooks cannot be used inside a function/if statement
+
+      Do Not set state manually
+      React is all about immutability
+      it is a bad practice to mutate state , even it works, in some cases like in big projects this may fail.
