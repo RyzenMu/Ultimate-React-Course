@@ -149,5 +149,9 @@ creating new app using create-react-app:
       hooks cannot be used inside a function/if statement
 
       Do Not set state manually
+
       React is all about immutability
       it is a bad practice to mutate state , even it works, in some cases like in big projects this may fail.
+      In react, a view is updated by re-rendering a component
+      state only deleted when the component is destroyed also known as un-mounting.
+      there can be many useStates in the component/app
