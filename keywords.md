@@ -155,3 +155,15 @@ creating new app using create-react-app:
       In react, a view is updated by re-rendering a component
       state only deleted when the component is destroyed also known as un-mounting.
       there can be many useStates in the component/app
+
+      Developer Tools
+      chrome console, react dev tools
+      update state variable based on current state
+      each component manages its own state
+      UI is the combination of various components in their respective states
+      Ui is nothing but changing state in time
+      Always create a new state to track a data in time
+      for dynamic change use state
+      updating state happens in event handler
+      when building component, image of data changing over time
+      for data that should not trigger re-render, use normal variable and do not use state.
