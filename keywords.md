@@ -28,142 +28,183 @@ creating new app using create-react-app:
 
 1.npx create-react-app@5 pizza-menu
 
-4. Essential Javascript for React:
-   quokka.js install extension
-   command pallete -> quokka.js start
-   rest operator should be the last in the array/object
-   spread operator
-   template literals
-   terenary operator
-   arrow functions
-   function expression
-   short circuting with and operator
-   short circuting with or opertor
-   falsy values
-   nullishish coallising operator
-   short circuting anfd logical operators
-   optional chaining ?. helps in accessing safely nested properties
-   functional array methods are map, reduce and filter.
-   these functional array methods do not mutate original arrays
-   the reduce methods has two arguments, the callback function ND INITIAL VALUE, usually 0;
-   the callback function in reduce method also take two arguments previous value and current value;
-   Sort method will mutate the array.
-   to make immutable array use .slice().
+4.  Essential Javascript for React:
+    quokka.js install extension
+    command pallete -> quokka.js start
+    rest operator should be the last in the array/object
+    spread operator
+    template literals
+    terenary operator
+    arrow functions
+    function expression
+    short circuting with and operator
+    short circuting with or opertor
+    falsy values
+    nullishish coallising operator
+    short circuting anfd logical operators
+    optional chaining ?. helps in accessing safely nested properties
+    functional array methods are map, reduce and filter.
+    these functional array methods do not mutate original arrays
+    the reduce methods has two arguments, the callback function ND INITIAL VALUE, usually 0;
+    the callback function in reduce method also take two arguments previous value and current value;
+    Sort method will mutate the array.
+    to make immutable array use .slice().
 
-   Always use slice() TO MAKE THE ARRAY IMMUTABLE.
+    Always use slice() TO MAKE THE ARRAY IMMUTABLE.
 
-   promises
-   async await
+    promises
+    async await
 
-5. Working with Components Props and Jsx
-   Rendering the root component and strict mode
-   import react and react dom
-   create component (function)
-   render the component
-   code Debugging
-   Components are the building blocks
-   data are passed to the components using props
-   Component tree is a plan
-   reusing components is the fundamental concept of usoing react
-   Component has its own data, logic and apperance.
-   JSX -declarative syntax how they look like
-   components must return a block of jsx
-   Babel is a tool that converts jsx to html
-   Babel is automatically included in react
-   Browers do not understand jsx, they only understand html.
-   we could use react without jsx., but it is cumbersome
-   Declarative is we dont tell react how to do
-   Jsx is declative
-   Imperative is we tell how to do like, create element, add event listerner, etc
-   vanilla js is imperative
+5.  Working with Components Props and Jsx
+    Rendering the root component and strict mode
+    import react and react dom
+    create component (function)
+    render the component
+    code Debugging
+    Components are the building blocks
+    data are passed to the components using props
+    Component tree is a plan
+    reusing components is the fundamental concept of usoing react
+    Component has its own data, logic and apperance.
+    JSX -declarative syntax how they look like
+    components must return a block of jsx
+    Babel is a tool that converts jsx to html
+    Babel is automatically included in react
+    Browers do not understand jsx, they only understand html.
+    we could use react without jsx., but it is cumbersome
+    Declarative is we dont tell react how to do
+    Jsx is declative
+    Imperative is we tell how to do like, create element, add event listerner, etc
+    vanilla js is imperative
 
-   Declarative --Describe what UI should look like using JSX, based on current data (props abd state)
+    Declarative --Describe what UI should look like using JSX, based on current data (props abd state)
 
-   Separation of concerns
-   before SPA , there are html page, css page and js page combined for web.
-   one technology per page is called separation of concens.
-   As pages got more and more interactive SPA originated, js became incharge of html and css.
-   react also has separtion of concers, i.e. one component one concern.
-   styling in react is using two set of {{}} one for value and another for object.
-   passing data between components is called props
-   data is passed between parent component and child component through props
-   props are essentaial tool to configure and customize components
-   with propsparents component control how child component look and work
-   Anything can be passed as props single values, arrays, objects, functions, and even components
-   props are read only
-   data = props + state
-   props are immutable
-   state are mutable
-   props are the data coming from the outside and an be only updated by thye read component
-   state is the internal datathat can be updated by the components logic
-   props is immutable , it is one of the reacts strict rule.
-   Mutating prop would affect parent component, creating side effects (not pure).
-   usuallu side effects happen when a function changes data outside of the function.
-   react is all about pure functions, so functions without side effects
-   components should be pure in props and state.
-   these pure components allows react to optimize apps, avoid bugs, make apps pretictable.
-   react uses one-way data flow. i.e parent component -> child component
-   angular uses two-way data flow
-   one-way data flow is essential for more predictable and easier to understand.
-   one -way data flow is more performant than two way data-flow
+    Separation of concerns
+    before SPA , there are html page, css page and js page combined for web.
+    one technology per page is called separation of concens.
+    As pages got more and more interactive SPA originated, js became incharge of html and css.
+    react also has separtion of concers, i.e. one component one concern.
+    styling in react is using two set of {{}} one for value and another for object.
+    passing data between components is called props
+    data is passed between parent component and child component through props
+    props are essentaial tool to configure and customize components
+    with propsparents component control how child component look and work
+    Anything can be passed as props single values, arrays, objects, functions, and even components
+    props are read only
+    data = props + state
+    props are immutable
+    state are mutable
+    props are the data coming from the outside and an be only updated by thye read component
+    state is the internal datathat can be updated by the components logic
+    props is immutable , it is one of the reacts strict rule.
+    Mutating prop would affect parent component, creating side effects (not pure).
+    usuallu side effects happen when a function changes data outside of the function.
+    react is all about pure functions, so functions without side effects
+    components should be pure in props and state.
+    these pure components allows react to optimize apps, avoid bugs, make apps pretictable.
+    react uses one-way data flow. i.e parent component -> child component
+    angular uses two-way data flow
+    one-way data flow is essential for more predictable and easier to understand.
+    one -way data flow is more performant than two way data-flow
 
-   challenge one - profile Card
-   JSX - uses {} to get values
-   we can place javascript expressions inside {} like reference variables, create arrays or objects,[].map, ternary operator
-   we cannot use javascript statements like if/else, for loop, and switch
-   jsx produces a javascript expressions
-   key is a prop in react used for performance improvements.
-   every key should be unique
-   map creates a new array
-   foreach iterates a array and does not return any value.
-   Always use map in React
-   do not use foreach in react jsx
-   react do not render true or false
-   react do render number 0
+    challenge one - profile Card
+    JSX - uses {} to get values
+    we can place javascript expressions inside {} like reference variables, create arrays or objects,[].map, ternary operator
+    we cannot use javascript statements like if/else, for loop, and switch
+    jsx produces a javascript expressions
+    key is a prop in react used for performance improvements.
+    every key should be unique
+    map creates a new array
+    foreach iterates a array and does not return any value.
+    Always use map in React
+    do not use foreach in react jsx
+    react do not render true or false
+    react do render number 0
 
-   three ways of conditional rendering
+    three ways of conditional rendering
 
-   1. short circuting
-   2. ternary operator
-   3. conditional rendering with multiple returns (early returns)
+    1. short circuting
+    2. ternary operator
+    3. conditional rendering with multiple returns (early returns)
 
-   destructing objects instead of props.
-   React Fragments are used to render all the html elements separately without a parent tag.
-   conditionally set classNames and conditionally set text
+    destructing objects instead of props.
+    React Fragments are used to render all the html elements separately without a parent tag.
+    conditionally set classNames and conditionally set text
 
-   6. Handling Events , State , Forms , Controlled Elements in React
-      State is the most important concept in react
-      there are 3 state concepts, useState, useReducer and Context API
-      state is a data that a component hold over a time.
-      simple examples are notifications count, messages count, content of a shopping kart
-      state varible / piece of state : A single variable in a component
-      state is components memory
-      updating state causes react to re-render
-      state allows you to update components view
-      persists local variables between renders
-      step 1 -- a new state variable
-      step 2 -- use it in jsx
-      step 3 --update piece of state in some event handler
-      All the react functions prefixed use is called Hooks
-      Hooks cane be used only in react.
-      hooks cannot be used inside a function/if statement
+6.  Handling Events , State , Forms , Controlled Elements in React
+    State is the most important concept in react
+    there are 3 state concepts, useState, useReducer and Context API
+    state is a data that a component hold over a time.
+    simple examples are notifications count, messages count, content of a shopping kart
+    state varible / piece of state : A single variable in a component
+    state is components memory
+    updating state causes react to re-render
+    state allows you to update components view
+    persists local variables between renders
+    step 1 -- a new state variable
+    step 2 -- use it in jsx
+    step 3 --update piece of state in some event handler
+    All the react functions prefixed use is called Hooks
+    Hooks cane be used only in react.
+    hooks cannot be used inside a function/if statement
 
-      Do Not set state manually
+Do Not set state manually
 
-      React is all about immutability
-      it is a bad practice to mutate state , even it works, in some cases like in big projects this may fail.
-      In react, a view is updated by re-rendering a component
-      state only deleted when the component is destroyed also known as un-mounting.
-      there can be many useStates in the component/app
+React is all about immutability
+it is a bad practice to mutate state , even it works, in some cases like in big projects this may fail.
+In react, a view is updated by re-rendering a component
+state only deleted when the component is destroyed also known as un-mounting.
+there can be many useStates in the component/app
 
-      Developer Tools
-      chrome console, react dev tools
-      update state variable based on current state
-      each component manages its own state
-      UI is the combination of various components in their respective states
-      Ui is nothing but changing state in time
-      Always create a new state to track a data in time
-      for dynamic change use state
-      updating state happens in event handler
-      when building component, image of data changing over time
-      for data that should not trigger re-render, use normal variable and do not use state.
+Developer Tools
+chrome console, react dev tools
+update state variable based on current state
+each component manages its own state
+UI is the combination of various components in their respective states
+Ui is nothing but changing state in time
+Always create a new state to track a data in time
+for dynamic change use state
+updating state happens in event handler
+when building component, image of data changing over time
+for data that should not trigger re-render, use normal variable and do not use state.
+
+Windows + period. => emoji
+
+we use form tag in react as we already used in html
+we use select tag for selection
+we use option tag for options inside selection
+Array --> from will make the array and array map function
+form tag has an attribute onSubmit={} which will happen when submission happened
+event.preventDefault() should be used in React/SPA, to prevent re-rendering
+if we pass function on button it will happen only if the form is clicked
+submission happens even when we press enter tab when the functio is presented in the form tag with attribute onSubmit
+the form objects will be preseted in the event
+event the form data
+we can get the data from event.target.input
+react does not recommed us to take data from data.target.input
+instead react suggests us to get form -data using controlled elements
+
+Controlled Elements
+-it is used to take the form data for procesing
+-input field, selection field and text area field are called controlled elements.
+
+- these controlled elements have their own state inside the DOM
+  -we want the data to be in the react and not in the dom
+- in order to do that we use technique called controlled elements.
+- there are three steps to take data to state
+  -1.useState
+  -2. incude inside jsx
+  -3. event.target.value --> transfer the data fro form to state
+  -for quick id always use Date.now()
+
+State vs Props:
+-state is internal data and props are external data
+.state is components memory
+.props are similar to functional parameters passed from parent component to child component
+. state can be updated component itself causing re-render
+. props are read only they cannot be modified
+. Receiving new props will causes components to re-render. usually whenthe parent's state is updated.
+. used by parent to configurechild component
+
+Flash Cards:
+.

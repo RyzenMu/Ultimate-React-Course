@@ -137,3 +137,20 @@ input[type="checkbox"] {
   font-weight: 700;
   padding: 3.2rem 0;
 }
+
+/* In your App.css file */
+.app {
+  max-width: 100%; /* Ensure the app container does not exceed the viewport width */
+  overflow: hidden; /* Prevent horizontal scroll */
+}
+
+.list {
+  max-height: 100vh; /* Ensure the list container does not exceed viewport height */
+  overflow-y: auto; /* Only show vertical scroll if content exceeds container height */
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+li {
+  list-style: none; /* Optional: Remove bullet points from list items */
+  margin-bottom: 8px; /* Optional: Add spacing between items */
+}
