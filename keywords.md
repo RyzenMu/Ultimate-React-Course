@@ -208,3 +208,75 @@ State vs Props:
 
 Flash Cards:
 .
+
+7.Thinking in React State Management
+.One of the core skill is thinking in react
+. state management is key to react development
+. react requires different mindset , it is different from vanilla
+. how to work with react APi like useSate,
+. When to use react tools components, state, props, hooks, effects, etc..
+. Thinking in state transitions , not element mutations
+. 1. establishing the component tree.
+. 2. build a static version of the application (without state).
+. 3. think about state.
+. 4. establish data flows, from parent to child,
+. 5. state and data flow is called state-Management
+
+fundamentals of state management:
+. managing state is the important part of react
+. state management : Deciding when to create pieces of state, what types of state are necessary, where to place each piece of state, and how data flows through the app.
+. each piece of state a home
+. state can be placed inside parent component or global state
+. local state needed only by one or few components
+. state is defined in a component and only that component and child component have access to it.
+. state known to only for search bar
+. Global state is one that is needed by many components.
+. shared state that is accessible to every component in the entire application.
+. these global state can be managed using contextAPI which comes with react or use external library like REDUX
+. always start with local state, move to global state when you truly need it.
+
+State: When and Where
+. when you need to store data
+. will data change at some point
+. if data will not change use const variable.
+. if data changes then consider the state can be computed from existing state/props.
+. then Derive state
+. Ref (useRef) is one which persists the state but do not re-render the component
+. place a new piece of state in component
+. if used by only one component simply leave it in that component
+. if needed by child component just pass the state using props
+. if used by one or a few sibling compoenents, lift state up to first common parent
+. This is called lifting state up.
+
+FAR AWAY:
+. Anything can be passed as a prop
+. functions can be passed as a prop
+
+LIFTING UP THE STATE:
+. sharing one piece of state with multiple components
+. ckeout part in udemy is an app
+. it has several components
+. promotions component -- list of coupouns -- an componnt
+. total component also requires coupoun state
+. we cannot mutate props
+. we can also send set function down the component (to child component using prop) which will update prop in the parent component
+. this technique is called inverse data flow or data flowing up.
+
+DELETING AN ITEM (updating state in parent component):
+. we cannot directly pass prop from parent to grand child, but only through the child
+. we only can pass state/setstate in App through packingList to Item.
+
+Adding Checkbox to Far Away App
+
+Derived State:
+. derived state is computed from an existing piece of state or from props.
+. One state should not depend on another state
+. updating one state will re-render 3 -times if two state depend on another one.
+. just use derived state as regular variable
+. keeep one state as single source of truth
+.
+
+SORTING ITEMS IN FAR AWAY:
+.use select tag and option tag for inputing.
+.to sort by ascending use a.description.localeCompare(b.description).
+.
