@@ -279,4 +279,15 @@ Derived State:
 SORTING ITEMS IN FAR AWAY:
 .use select tag and option tag for inputing.
 .to sort by ascending use a.description.localeCompare(b.description).
+.WIndow.confirm('Are you sure')-- creates an alert box, if yes then only next line executes.
+
+MOVING FILES : ONE COMPONENT PER FILE :
+.use folder "components" and move components there.
+. always use export defaut
+. do not use named function
+
+ACCORDION:
+. use condition rendering to render answer, icon and css classes
+
+THE CHILDREN PROP: MAKING REUSABLE BUTTON:
 .
