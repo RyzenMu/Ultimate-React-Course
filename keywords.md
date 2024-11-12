@@ -290,4 +290,10 @@ ACCORDION:
 . use condition rendering to render answer, icon and css classes
 
 THE CHILDREN PROP: MAKING REUSABLE BUTTON:
-.
+.do not use self closing of components
+. write the components as usual html
+. write children in the prop
+. write {children} where it is needed
+. children prop will leave a hole in the Component
+. write any html markup between component tags
+. used in modal window, generic button etc

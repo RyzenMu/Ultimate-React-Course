@@ -10,7 +10,14 @@ export default function App() {
   return (
     <>
       <Steps />
-      {/* <Steps /> */}
+      <StepMessage step={1}>
+        <p>Pass in Content</p>
+        <p> 🦇 </p>
+      </StepMessage>
+      <StepMessage step={2}>
+        <p>Read the children prop</p>
+        <p> 🐦 </p>
+      </StepMessage>
     </>
   );
 }
@@ -26,7 +33,6 @@ function Steps() {
 
   function handleNext() {
     if (step < 3) {
-      setStep((curStep) => curStep + 1);
       setStep((curStep) => curStep + 1);
     }
     // step = step + 1;
@@ -47,24 +53,34 @@ function Steps() {
             <div className={step >= 2 ? "active" : ""}>2</div>
             <div className={step >= 3 ? "active" : ""}>3</div>
           </div>
-          <p className="message">
-            {" "}
-            Step {step}: {messages[step - 1]}
-            {/* {test.name} */}
-          </p>
+          <StepMessage step={step}>
+            {messages[step - 1]}
+            <div className="buttons">
+              <Button
+                textColor={"#123456"}
+                bgColor={"#789012"}
+                onClick={() => alert("Learn how to ")}
+              >
+                {" "}
+                <span>👈</span> Learn
+              </Button>
+            </div>
+          </StepMessage>
           <div className="buttons">
-            <button
-              style={{ backgroundColor: "#7950f2", color: "#ffffff" }}
+            <Button
+              textColor={"#7950f2"}
+              bgColor={"#ffffff"}
               onClick={handlePrevious}
             >
-              previous
-            </button>
-            <button
-              style={{ backgroundColor: "#7950f2", color: "#ffffff" }}
+              <span>👈</span> Previous
+            </Button>
+            <Button
+              textColor={"#7950f2"}
+              bgColor={"#ffffff"}
               onClick={handleNext}
             >
-              next
-            </button>
+              next <span>👉</span>
+            </Button>
           </div>
         </div>
       )}
@@ -72,13 +88,22 @@ function Steps() {
   );
 }
 
-function Button() {
+function StepMessage({ step, children }) {
+  return (
+    <div className="message">
+      <h3>Step {step}</h3>
+      {children}
+    </div>
+  );
+}
+
+function Button({ textColor, bgColor, onClick, children }) {
   return (
     <button
-      style={{ backgroundColor: "#7950f2", color: "#ffffff" }}
-      onClick={handleNext}
+      style={{ backgroundColor: bgColor, color: textColor }}
+      onClick={onClick}
     >
-      text
+      {children}
     </button>
   );
 }
