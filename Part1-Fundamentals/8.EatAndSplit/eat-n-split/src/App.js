@@ -3,10 +3,14 @@ import "./App.css";
 
 export default function App() {
   return (
-    <div>
-      <h1>Hello React</h1>
-      <FriendsList />
-      <AddFriends />
+    <div className="app">
+      <div className="item">
+        <FriendsList />
+        <AddFriends />
+      </div>
+      <div className="item">
+        <SplitCalculatorForm />
+      </div>
     </div>
   );
 }
@@ -48,7 +52,18 @@ function AddFriends() {
           <label>👨‍👩‍👧‍👦 Image URL</label>
           <input type="text" style={{ marginLeft: "5%" }} />
         </div>
+        <div>
+          <button>Add</button>
+        </div>
       </div>
+    </div>
+  );
+}
+
+function SplitCalculatorForm() {
+  return (
+    <div className="split-calculator-form">
+      <h1>SPLt A BILL WITH CLARK</h1>
     </div>
   );
 }

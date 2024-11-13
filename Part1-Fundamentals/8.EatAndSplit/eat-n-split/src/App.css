@@ -7,8 +7,7 @@ body {
 }
 
 .friends-list {
-  width: 40%;
-  height: 30%;
+  width: 50%;
   margin: 5% 5%;
   border: 2px solid green;
 }
@@ -34,10 +33,19 @@ body {
 .add-friends {
   padding: 3% 1%;
   border: 2px solid purple;
-  width: 40%;
+  width: 50%;
   margin: 5% 5%;
 }
 
 .add-friends input {
   width: 40%;
+}
+
+.split-calculator-form {
+  border: 2px solid red;
+  margin: 5% 5%;
+}
+
+.app {
+  display: flex;
 }
