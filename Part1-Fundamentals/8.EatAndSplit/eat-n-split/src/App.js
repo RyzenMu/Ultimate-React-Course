@@ -49,7 +49,7 @@ function AddFriends() {
           <input type="text" style={{ marginLeft: "5%" }} />
         </div>
         <div>
-          <label>👨‍👩‍👧‍👦 Image URL</label>
+          <label>🕸️ Image URL</label>
           <input type="text" style={{ marginLeft: "5%" }} />
         </div>
         <div>
@@ -63,7 +63,7 @@ function AddFriends() {
 function SplitCalculatorForm() {
   return (
     <div className="split-calculator-form">
-      <h1>SPLt A BILL WITH CLARK</h1>
+      <h1>SPLIT A BILL WITH CLARK</h1>
     </div>
   );
 }

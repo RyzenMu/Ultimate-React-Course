@@ -6,46 +6,45 @@ body {
   box-sizing: border-box;
 }
 
+.app {
+  display: flex;
+  margin: 2%;
+  justify-content: center;
+  justify-items: center;
+  border: 2px solid black;
+  padding: 2%;
+}
+
+.item {
+  border: 2px solid red;
+  width: 49%;
+}
+
 .friends-list {
-  width: 50%;
-  margin: 5% 5%;
-  border: 2px solid green;
+  margin: 2%;
+  border: 1px solid lightcoral;
+  padding: 2%;
 }
 
 .friends {
+  margin: 2%;
+  padding: 2%;
+  border: 1px solid blue;
   display: flex;
-  padding: 5% 5%;
-  border: 2px solid salmon;
-  margin: 2% 2%;
-}
-
-.friends button {
-  margin: 50% 50%;
-  padding: 10% 10%;
-}
-
-.friends img {
-  width: 30%;
-  border-radius: 50%;
-  border: 2px solid grey;
+  align-items: center;
+  justify-content: center;
+  gap: 4%;
 }
 
 .add-friends {
-  padding: 3% 1%;
-  border: 2px solid purple;
-  width: 50%;
-  margin: 5% 5%;
+  margin: 2%;
+  padding: 2%;
+  border: 1px solid rgba(100, 100, 100, 0.8);
 }
 
-.add-friends input {
-  width: 40%;
+.add-friends button {
+  margin: 5% 50%;
 }
-
-.split-calculator-form {
-  border: 2px solid red;
-  margin: 5% 5%;
-}
-
-.app {
-  display: flex;
+img {
+  width: 40px;
 }
