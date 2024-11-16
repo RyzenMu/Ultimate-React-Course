@@ -63,7 +63,28 @@ function AddFriends() {
 function SplitCalculatorForm() {
   return (
     <div className="split-calculator-form">
-      <h1>SPLIT A BILL WITH CLARK</h1>
+      <div className="expense-fields">
+        <h1>SPLIT A BILL WITH CLARK</h1>
+        <h3>💰 Bill value</h3>
+        <input type="text" value="" />
+      </div>
+      <div className="expense-fields">
+        <h3>🙎‍♂️ Your expense</h3>
+        <input type="text" value="" />
+      </div>
+      <div className="expense-fields">
+        <h3>🧑‍🤝‍🧑 Clark expense</h3>
+        <input type="text" value="" />
+      </div>
+      <div className="expense-fields">
+        <h3>🤔 Who is paying the bill</h3>
+        <select>
+          <option>You</option>
+          <option>Me</option>
+          <option>Split</option>
+        </select>
+      </div>
+      <button>Split bill</button>
     </div>
   );
 }

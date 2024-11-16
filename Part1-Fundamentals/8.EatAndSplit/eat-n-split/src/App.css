@@ -4,6 +4,7 @@ body {
 
 * {
   box-sizing: border-box;
+  background-color: rgba(231, 226, 220, 0.863);
 }
 
 .app {
@@ -47,4 +48,17 @@ body {
 }
 img {
   width: 40px;
+}
+
+.split-calculator-form h3 {
+  font-size: small;
+  display: inline-block;
+  margin: 2% 5%;
+}
+
+.split-calculator-form .expense-field {
+  display: flex;
+}
+.split-calculator-form .expense-field input {
+  width: 20%;
 }
