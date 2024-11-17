@@ -42,13 +42,13 @@ function Friends() {
 
 function AddFriends() {
   return (
-    <div className="add-friends">
-      <div>
-        <div>
+    <div>
+      <div className="add-friends">
+        <div className="add-friends-item">
           <label>👨‍👩‍👧‍👦 Friend Name</label>
           <input type="text" style={{ marginLeft: "5%" }} />
         </div>
-        <div>
+        <div className="add-friends-item">
           <label>🕸️ Image URL</label>
           <input type="text" style={{ marginLeft: "5%" }} />
         </div>
@@ -65,6 +65,8 @@ function SplitCalculatorForm() {
     <div className="split-calculator-form">
       <div className="expense-fields">
         <h1>SPLIT A BILL WITH CLARK</h1>
+      </div>
+      <div className="expense-fields">
         <h3>💰 Bill value</h3>
         <input type="text" value="" />
       </div>

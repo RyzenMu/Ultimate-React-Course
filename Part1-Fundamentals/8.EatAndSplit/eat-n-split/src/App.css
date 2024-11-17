@@ -46,6 +46,15 @@ body {
 .add-friends button {
   margin: 5% 50%;
 }
+
+.add-friends .add-friends-item {
+  position: relative;
+}
+
+.add-friends .add-friends-item input {
+  position: absolute;
+  right: 5%;
+}
 img {
   width: 40px;
 }
@@ -56,9 +65,16 @@ img {
   margin: 2% 5%;
 }
 
-.split-calculator-form .expense-field {
+.split-calculator-form .expense-fields {
   display: flex;
 }
-.split-calculator-form .expense-field input {
-  width: 20%;
+
+.split-calculator-form .expense-fields {
+  text-align: right;
+  position: relative;
+}
+
+.split-calculator-form .expense-fields input {
+  position: absolute;
+  right: 5%;
 }
