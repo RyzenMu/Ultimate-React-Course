@@ -297,3 +297,8 @@ THE CHILDREN PROP: MAKING REUSABLE BUTTON:
 . children prop will leave a hole in the Component
 . write any html markup between component tags
 . used in modal window, generic button etc
+
+EAT AND SPLIT:
+. displayed in the input tag disables the input , no one can edit.
+. use label tag for forms
+.
