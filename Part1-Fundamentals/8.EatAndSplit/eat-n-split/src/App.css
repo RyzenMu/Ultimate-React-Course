@@ -12,35 +12,36 @@ body {
   margin: 2%;
   justify-content: center;
   justify-items: center;
-  border: 2px solid black;
+  /* border: 2px solid black; */
   padding: 2%;
 }
 
 .item {
-  border: 2px solid red;
+  /* border: 2px solid red; */
   width: 49%;
 }
 
 .friends-list {
   margin: 2%;
-  border: 1px solid lightcoral;
+  /* border: 1px solid lightcoral; */
   padding: 2%;
 }
 
 .friends {
   margin: 2%;
   padding: 2%;
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 4%;
+  border-radius: 5%;
 }
 
 .add-friends {
   margin: 2%;
   padding: 2%;
-  border: 1px solid rgba(100, 100, 100, 0.8);
+  /* border: 1px solid rgba(100, 100, 100, 0.8); */
 }
 
 .add-friends button {
@@ -49,6 +50,7 @@ body {
 
 .add-friends .add-friends-item {
   position: relative;
+  margin-top: 3%;
 }
 
 .add-friends .add-friends-item input {
@@ -57,6 +59,7 @@ body {
 }
 img {
   width: 40px;
+  border-radius: 50%;
 }
 
 .split-calculator-form h3 {
@@ -70,11 +73,21 @@ img {
 }
 
 .split-calculator-form .expense-fields {
-  text-align: right;
+  text-align: center;
   position: relative;
 }
 
 .split-calculator-form .expense-fields input {
   position: absolute;
   right: 5%;
+}
+
+.split-calculator-form button {
+  margin: 5% 50%;
+  width: 20%;
+}
+
+button {
+  background-color: lightblue;
+  border-radius: 10%;
 }

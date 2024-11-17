@@ -14,13 +14,13 @@ export default function App() {
   console.log(othersBill);
   console.log(who);
   console.log(typeof yourBillValue);
-  const [finalText, setFinalText] = useState("");
+  let finalText = "";
 
   function result() {
     if (who === "you") {
-      setFinalText(` ${name} owe you -- Rs ${Number(othersBill)}`);
+      finalText = ` ${name} owe you -- Rs ${Number(othersBill)}`;
     } else if (who === "other") {
-      setFinalText(`you owe ${name} --Rs ${Number(yourBillValue)}`);
+      finalText = `you owe ${name} --Rs ${Number(yourBillValue)}`;
     }
   }
 
@@ -150,14 +150,14 @@ function SplitCalculatorForm({
   return (
     <div className="split-calculator-form">
       <div className="expense-fields">
-        <h1>Split a bill with {name}</h1>
+        <h1>split a bill with {name}</h1>
       </div>
       <div className="expense-fields">
         <h3>💰 Bill value</h3>
         <input
           type="number"
           value={billValue}
-          onChange={(e) => onSetBillValue(Number(e.target.value))}
+          onChange={(e) => onSetBillValue(e.target.value)}
         />
       </div>
       <div className="expense-fields">
@@ -165,12 +165,12 @@ function SplitCalculatorForm({
         <input
           type="number"
           value={yourBillValue}
-          onChange={(e) => onSetYourBillValue(Number(e.target.value))}
+          onChange={(e) => onSetYourBillValue(e.target.value)}
         />
       </div>
       <div className="expense-fields">
-        <h3>🧑‍🤝‍🧑 {name}'s expense</h3>
-        <input type="number" value={othersBill} readOnly />
+        <h3>🧑‍🤝‍🧑 {name} expense</h3>
+        <input type="number" value={othersBill} />
       </div>
       <div className="expense-fields">
         <h3>🤔 Who is paying the bill</h3>
@@ -183,7 +183,7 @@ function SplitCalculatorForm({
       <button
         onMouseOver={overButton}
         onMouseLeave={leaveButton}
-        onClick={() => onResult()} // Correctly call the onResult function here
+        onClick={() => onResult()}
       >
         Split bill
       </button>
