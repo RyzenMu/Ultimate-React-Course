@@ -301,4 +301,4 @@ THE CHILDREN PROP: MAKING REUSABLE BUTTON:
 EAT AND SPLIT:
 . displayed in the input tag disables the input , no one can edit.
 . use label tag for forms
-.
+. every form tag should have e.preventDefault() to stop disapperaing
