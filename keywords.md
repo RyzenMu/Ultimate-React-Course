@@ -302,3 +302,10 @@ EAT AND SPLIT:
 . displayed in the input tag disables the input , no one can edit.
 . use label tag for forms
 . every form tag should have e.preventDefault() to stop disapperaing
+. in Button component use onClick as a function to resemble onclick in button tag and vice versa
+. on form ubmit ado not use arrow function
+. on form submit always use new separate function
+. on form submit do not call the function , just enter the name.
+. https://i.pravatar.cc/48" api gives different images randomly when called , so in order to fix to a constant image we attach a another uuid to the end.
+. react is all about immutability
+.
