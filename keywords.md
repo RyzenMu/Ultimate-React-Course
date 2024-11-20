@@ -308,4 +308,7 @@ EAT AND SPLIT:
 . on form submit do not call the function , just enter the name.
 . https://i.pravatar.cc/48" api gives different images randomly when called , so in order to fix to a constant image we attach a another uuid to the end.
 . react is all about immutability
+. when a prop is not used by a component but it pases to its children prop then it is called prop drilling.
+. for input text elements use empty string '' instead of 0
+. always use optional chaining for initial conditions.
 .
