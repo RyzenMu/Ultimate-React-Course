@@ -311,4 +311,5 @@ EAT AND SPLIT:
 . when a prop is not used by a component but it pases to its children prop then it is called prop drilling.
 . for input text elements use empty string '' instead of 0
 . always use optional chaining for initial conditions.
-.
+. use guard clauses when the submitting happens on empty input fields
+. Built small projects like shopping list, gold(goal) tracker, conference speaker list,
