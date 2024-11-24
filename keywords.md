@@ -313,3 +313,5 @@ EAT AND SPLIT:
 . always use optional chaining for initial conditions.
 . use guard clauses when the submitting happens on empty input fields
 . Built small projects like shopping list, gold(goal) tracker, conference speaker list,
+
+Mini Project -- Shopping Kart
