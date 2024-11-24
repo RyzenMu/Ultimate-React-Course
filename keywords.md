@@ -315,3 +315,5 @@ EAT AND SPLIT:
 . Built small projects like shopping list, gold(goal) tracker, conference speaker list,
 
 Mini Project -- Shopping Kart
+. react will not detect the array methods
+. romove the item immutably
