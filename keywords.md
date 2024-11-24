@@ -317,3 +317,35 @@ EAT AND SPLIT:
 Mini Project -- Shopping Kart
 . react will not detect the array methods
 . romove the item immutably
+
+pART 2 - INTERMEDIATE
+. building ui
+. layouts
+. fetching data
+. custom Hooks
+. setting up fiber
+
+THINKING IN REACT COMPONENTS COMPOSITION AND REUSABILITY
+.think about components
+.compositon
+.reusability
+.split a component
+. building layouts
+. . building layouts
+
+COMPONENTS:
+. classify components based on its size.
+. do not create small or large components
+. create medium components
+. 4 criteria for for splitting UI into COmponents
+. 1. logical separation of content
+. 2. reusability
+. 3. responsibility
+. 4. personal working style
+. new components create new abstrations which require more mental energy
+. name a component on what it displays or what it does.
+. do not create a new component inside another component
+. no nesting components
+. small components are mostly reused
+. large components are less reused
+.
