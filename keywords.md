@@ -348,4 +348,13 @@ COMPONENTS:
 . no nesting components
 . small components are mostly reused
 . large components are less reused
-.
+. when a component is called inside the same component the react will be in infinite loop.
+
+COMPONENT CATEGORIES:
+. 1. Stateless or presentational components.
+. 2. Stateful components
+. 3. Structural components
+. Structural Components are pages, layouts and screens
+. Structural components can be seen in large Apps.
+. Prop drilling will create havock if passes betwen > 7 components.
+. to mitigate prop drilling we use component composition.
