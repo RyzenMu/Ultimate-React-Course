@@ -358,3 +358,26 @@ COMPONENT CATEGORIES:
 . Structural components can be seen in large Apps.
 . Prop drilling will create havock if passes betwen > 7 components.
 . to mitigate prop drilling we use component composition.
+
+COMPONENT COMPOSITION:
+. component composition is a technique whwere we can use a component inside another component using a children parameter.
+. it is combining different components using children prop.
+. creates highy reusable and flexible components.
+. it can fix prop drilling problem.
+. it is great for creating layouts.
+. it is possible beacuse it need to be know children in advance.
+. inside {} 1.e. javascript do not use {children}, this will create a new object with children,
+. only one set of {} is enough for children/props.
+
+CREATING REUSABLE BOX or REUSABLE COMPONENT:
+. if two or more components are very similar we can use resuable components
+. in those reusable components we pass children to differtiate one another.
+
+PASSING ELEMENTS AS PROPS (ALTERNATIVE TO CHILDREN):
+. instead of children use 'element'
+. these passing elements as props is useful in React Router.
+. in case of two or more elements to be passes use fragments <></>
+. shortcut to go to specific component is Ctrl + click on the component.
+
+BUILDING A REUSABLE STAR RATING COMPONENT:
+.
