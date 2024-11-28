@@ -380,4 +380,7 @@ PASSING ELEMENTS AS PROPS (ALTERNATIVE TO CHILDREN):
 . shortcut to go to specific component is Ctrl + click on the component.
 
 BUILDING A REUSABLE STAR RATING COMPONENT:
-.
+.when in-line style is used the style code must be outside components,
+. so that it will not be re-rendered , which increases speed.
+. attribute role="button" is used for accesebility.
+. Array.from({length:5}, (\_, i)=>{})
