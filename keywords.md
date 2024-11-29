@@ -384,3 +384,33 @@ BUILDING A REUSABLE STAR RATING COMPONENT:
 . so that it will not be re-rendered , which increases speed.
 . attribute role="button" is used for accesebility.
 . Array.from({length:5}, (\_, i)=>{})
+. jsx does not have hover event , so use onmouseenter and onmouseleave
+
+PROP AS AN COMPONENT API:
+.there are two persons one is componnet creator and other is component consumer.
+. both merge on component APi
+. these are used very well in teams.
+. component props as public APi
+. while creating a component have a mindset of there being a creator and consumer of component.
+. crerator is a person who builds a component.
+. creator defines what props the component can accept.
+. while the consumer uses the component, some where in the application, specifing value for the props.
+. one can have a mindset of props as public api of the component.
+. so naturally we are creating public interfacce of the component .
+. cretor defines how much complexity, expose to the consumer of the api.
+. this allows consumers to interact with the components through props.
+. while defining props, we should decide on how strict we want to be.
+. like how many props we should enable for confoguration.
+. for example in weather application, we could allow only one prop, for location , where the consumer wnats the weather.
+. this too little prop is not flexible enough, might not be usefuk.
+. in case of too many props --> this will make the app way hard to use for the consumer.
+. it will expose too much complexity.
+. very hard to write code.
+. strike a balance between too little and too plenty props.
+. give goog default values for many of them.
+
+IMPROVING REUSABILTY WITH PROPS:
+. to use star rating component in many places in code or to publish it to npm package for many developers, we shpuld use component API.
+. other developers mighht want to change color or size of the stars or might make other changes.
+. so we should find a good public api .
+.
