@@ -413,4 +413,30 @@ IMPROVING REUSABILTY WITH PROPS:
 . to use star rating component in many places in code or to publish it to npm package for many developers, we shpuld use component API.
 . other developers mighht want to change color or size of the stars or might make other changes.
 . so we should find a good public api .
-.
+. we are using className in component props to chane the text style etc, according to consumer's perference.
+. we can use text istead of showing star number., these can be passed as another prop. as an array
+. another feature is to allow consumer to have default rating
+. never initialize state from props.
+. we can also allow consumer to vary different color to different stars, where should the messages be present, different spacing between the different stars,
+. passing a state of one component to another component.
+. the movie rating should be passes to another component as state updated.
+
+PROP TYPES:
+. if we set different prop type then the component will not work.
+. instead of color prop as text , if we give number then the component will not work.
+. use array type if [] is specified, does not use object as a type for array.
+. while using a function as a type type "func" just first 4 letters of function.
+. import PropTypes from prop-types
+. prop-types package is installed by default by create-react-app.
+. syntax for proptypes is as follows
+componentName.propType = {
+size : PropType.number,
+className: PropType.string,
+messages : PropType.array,
+onCLick : PropType.func,
+}
+
+. these proptype will show error in the console for our identification.
+. besides these we have PropType.bool for boolean
+. besides these we have PropType.object for objects.
+. if we use typescript, proptypes is not required.
