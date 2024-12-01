@@ -1,0 +1,24 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.card {
+  margin: 5% 5%;
+  border: 2px solid black;
+  font-size: x-large;
+  text-align: center;
+}
+
+.card button {
+  font-size: medium;
+  text-align: center;
+  background-color: rgba(127, 255, 212, 0.192);
+  padding: 1%;
+}
+
+.app {
+  background-color: rgba(200, 210, 239, 0.644);
+  margin-top: 1%;
+}
