@@ -440,3 +440,20 @@ onCLick : PropType.func,
 . besides these we have PropType.bool for boolean
 . besides these we have PropType.object for objects.
 . if we use typescript, proptypes is not required.
+
+STAR RATING COMPONENT:
+. first Array.from creates 5 div's with its constant index value starting from 0, 1, 2, 3, 4.
+. create a state called rating and function setRating using useState and initialize to 0
+. onMouseOver function on div set the rating state to index +1
+. compare constant index with variable rating(i+1).
+. i < rating ? <FullStar/> : <EmptyStar>
+. button style for same as text is as follows:
+
+border:none,
+background:none,
+font: inherit
+
+11. HOW REEACT WORKS INSIDE:
+    . helps to become better and more confident react dev
+    . this will be bit intense
+    . watch atleast the final lecture.
