@@ -457,3 +457,26 @@ font: inherit
     . helps to become better and more confident react dev
     . this will be bit intense
     . watch atleast the final lecture.
+
+COMPONENTS,INSTANCES AND ELEMENTS:
+. Component is a single piece of ui,
+. component is a simple js function returns react elements written in jsx.
+. it is a blueprint or template.
+
+. component instances
+. using component react creates one or more instances.
+. in the project 4 instances of <Tab/> component is created.
+. React internally calls 4 Tab() functions.
+. Actual physical manifestation of a component.
+. Each instance i.e each of 4 <tab/> has its own prop and state.
+. Eac instance or <tab/> has its own life cycle. (born, live, die)
+. Component Instances cerates one or more React Elements.
+. Jsx is converted into React.CreateElement() function calls.
+. this reults in react element.
+. React element is a big immutable Js Object, that react keeps iin memory.
+. The React Object is storing nessesary information to build a Dom. elements.
+. this Dom elements is painted on the browser.
+. Actual Visual represenattion of the compoenent instance in the browser.
+
+INSTANCES AND ELEMENTS IN PRACTICE:
+.
