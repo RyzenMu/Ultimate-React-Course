@@ -479,4 +479,21 @@ COMPONENTS,INSTANCES AND ELEMENTS:
 . Actual Visual represenattion of the compoenent instance in the browser.
 
 INSTANCES AND ELEMENTS IN PRACTICE:
+.$$typeof is a security feature implemented by react.
+.$$typeof protdct us againdt cross-side scripting attacks.
+. Symbol is a javascript primitive which cannot be transferred by a json.
+. means Symbol cannot come from a api call.
+. so attacker cannot send a react element via json, thus we are protected.
+. react internally calls components.
+.While component is called the type is -- Differentcontent or the name of the component.
+. while calling component as a function type is --Div.
+. when we render react we want to see the component instance and not the div.
+.array.at(activeTab) is simply the sauare notation = array[activeTab].
+. the TabConention accepts an object as a parameter so
+. in react we pass as <TabContent item={array.at(activeTab)} />.
+. in js we pass as TabContent({item: array.at(activTab)})
+. if we render component as a function it will be not shown in component tree.
+. if a componet is used as a function its state will be managed by the parent state. in our cause we have two states.
+. if a parent component has one children componet, only the state of the parent component will be shown along with children component, while clicking on children component the state os children compoenent will be shown.
+. never call component as functions as it will violate the rules of the component.
 .
