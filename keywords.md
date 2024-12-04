@@ -496,4 +496,72 @@ INSTANCES AND ELEMENTS IN PRACTICE:
 . if a componet is used as a function its state will be managed by the parent state. in our cause we have two states.
 . if a parent component has one children componet, only the state of the parent component will be shown along with children component, while clicking on children component the state os children compoenent will be shown.
 . never call component as functions as it will violate the rules of the component.
+
+HOW REACT RENDERS:
+.COMPONENT --> COMPONENT INSTANCE --react.createElement --> REACT ELEMENT --> DOM ELEMENT --> UI on screen
+. whwn state is updated , re-render happens.
+.Sate changes --> render is triggerred --> render phase(Dom updation) --> Commit phase --> Browser Paintint
+. In react rendering is not updating DOm or displaying elements on the screen.
+. but rendering happens only inside react, it does not produce visual changes.
+. previously we taught rendering means seeing UI on the screen.
+. react actually manupulate DOm in commit phase like DOm creating, updation, deletion, inserting, etc..
+. after commit phase browser repaints the screen.
+.Phae1 -- Trigerring of render
+. there are only two ways in which the render is trigerred.
+.1. initial render of application.
+.2. state is updated in one or more components. (also known as re-render)
+. the render process is trigerred for the entire application.
+. the render process is not trigerred for one single component.
+. in practice it looks like the re-render happens only in the component where the state is changed.
+. but that;s not how the react works behind the secne.
+. renders are not trigerred immediately,
+but scheduled for when the js engine has some "free time"
+there's also batching of multiple setState calls in event handler..
+.Phase 2 - The REnder Phase.
+. event handler --> state update --> re-render
+. rendering means calling component functions.
+. rendering is not about Dom Changes.
+. at the begining react will go through entire Component tree taje all the Component instances that trigerredd a re-render and actually render them.
+. means to call corresponding component functions, this will create updated react elements whick all together form virtual DOM.
+. VIRTUAL DOM (REACT ELEMENT TREE)
+. on initial render, react will take the entire component tree, and tranform it into a one big react element.
+. this is called react element tree.
+. this react element tree is called Virtual DOM.
+.VirtualDom -- Tree of all react elements created from all instances in the component tree.
+.it is really cheap and fast to create multiple trees like this. even many iterations is neededd.
+. because the tree is just a javascript object.
+.VIrtual DOM is most hyped among people.
+. But thinking VirtualDom is just a js object, now it is not a big deal.
+.SOme people confuse it with Shadoe DOM.
+.Shadoe DOM is nothing to do it with react.
+. Shadow DOm is used in Browser teachnolgy in web components.
+. Suppose a State is updated in COmponent D, which offcouse re-render entire tree, the react will again call the function D again, and place the new react element in a new React Element Tree(New Virtual DOM).
+.Rendering or re-rendering a component will cause all of its child components to be renderedd/re-rendered ass well (no matter if props changed or not).
+. if the highest component in the tree is rendered, then the entire application is re-renderedd.
+. React plays it safe and re-renders everything.
+. This does not mean the entire DOM is updatedd, but only the virtual DOm is re-created, which is not a big issue in snall and mediwm size application.
+. The new Virtual DOM after the state update will get re-conciledd(+ Diffing) with current fiber tree (before state update)
+. This reconciliation will be done in reatct re-conciler called Fiber.
+. React reconciler is called Fiber.
+. The result of the reconciliation process will be the Fiber Tree which eventually write to the DOM.
+.RECONCILIATION
+.The reason behind we use Virtual Dom is writing to virtual DOm is CHeap and Fast, but writing to Original DOm will be SLow and dearer. It will be extremely inefficient and wasteful
+. Usually (state change) Only a small part of the DOm needs to be updated. rest can be reused.
+. During initial render it will load from scratch thus ineffiecient, after updation is very fast.
+. For exapmle in Udemy website, if a button is clicked which generates a modal, then only the modal will change, the rest of the components will remain the same.
+. React is efficient by reusing the existing DOm tree .
+. Reconciliation means deciding which DOM elements actually need to be inserted, deleted or updated, in order to reflect the latest change.
+. The result of the reconciliation process will be a list of dom operations that are nessasary to update the current dom, with a new state.
+. Reconciliation is processed by a reconciler, this reconciler is the engine of the react,,
+. reconciler is the heart of react.
+. This reconciler alows us to never touch the DOM directllly.
+. Reconciler tells the react the next snapshot of the UI should look like, based on state.
+. the current reconciler in ract is called FIBER.
+. During the initial render of the application, fiber take the entire react element tree (virtual dom), based on it builds another tree, which is fiber tree,
+.Fiber tree is a internal tree that has "fiber" for each component instance and DOM element.
+. Unlike react elements is virtual dom, fiber are not re-created on every state change or render,
+. so fiber tree is never destroyed,
+. instead the fiber tree is a immutable data structure, once after createdd during initial render, it simplu mutated over and overr again in future reconciliations,
+. This makes fiber to keeping track of changes /things like Current state, props, side effects, used hooks, and more.
+.Actual state and props of any component instance that we see on screen are internally stored onthe corresponding fibre in the fibre tree.
 .
