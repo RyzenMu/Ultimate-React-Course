@@ -599,5 +599,9 @@ there's also batching of multiple setState calls in event handler..
 . The Commit phase actually mutate the dom.
 . the result of the render phase is the updated fiber tree and the list of DOm updates.
 . react not yet written anything to the DOm.
-. COMMIT PHASE
+.PHASE 3 -- COMMIT PHASE
+. in commit phase react finally writes to the dom
+. React writes to the dom -- insertions, deletions, updates (list of dom updates are "flushed" to the DOM).
+. writing to dom elements in one go.
+. committing is synchronous: DOM is updated in one-go, it can't be interuptted. This is necesasarry so that the DOM never shows partial results, ensuring a consistent UI (in sync with state at all times).
 .
