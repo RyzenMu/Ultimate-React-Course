@@ -564,4 +564,40 @@ there's also batching of multiple setState calls in event handler..
 . instead the fiber tree is a immutable data structure, once after createdd during initial render, it simplu mutated over and overr again in future reconciliations,
 . This makes fiber to keeping track of changes /things like Current state, props, side effects, used hooks, and more.
 .Actual state and props of any component instance that we see on screen are internally stored onthe corresponding fibre in the fibre tree.
+. each fiber also contains queue of work like updating state, updating refs running registered side effects, performing dom updates, and so on...
+. fiber is also defined as the unit of work.
+. fibres are arranged different than react element tree,
+. they are not arranged like a parent-child relationship.
+. Fibres are arranged like a linked list.
+. each parent have only one link to its first child, this first child have link to its siblings.
+. both react element tree and fiber tree consists of regular dom tree.
+.Both react element tree and fiber tree are complete representation of DOM structure. and not just of react components.
+. fibers are unit of work, one extreme characteristic of fiber reconciler is work can be performed asynchronously.
+. this means the rensering process, what the reconciler does can be split into chunks, some tasks can be prioritized over others and work can be paused , reused, or thrown away, if not valid any more..
+. these rendering process happens automatically behind the scceenes.
+. the pracctical uses of asynchronous rendering are 1. it enables the modern - concurrent features - like suspense ot transitions, starting in react 18. it also allows the rendering process to pause and resume later so that it wont block the browsers javascript engine which too long renders. which can be problamatic in large applications.
+. this is possible becaus ethe render phase does not produce any visible output to the dom yet.
+. RECONCILIATION IN ACTION.
+. during a state change , a new virtual dom is created (Complete app is re-rendered)
+, All Children of re-rendered element are -re-rendered along with the parent element in which the state is updated.
+. Now the new Virtual dom should be reconciled with the current fiber tree, which will result in the updated fiber ree.
+. this Update Fiber Tree is also known as WOrk In Progress Tree.
+. whenever reconciliation needs to happen, fiber walks through the entire tree step by step and analyses what need to be changed between the cureent fiber tree and updated fiber tree based on the new virtual DOM.
+. This process of comparing step by stepis called diffing.
+. Diffing is comparing elements based on their position in tree.
+. The Updated Fiber tree will mark new work related to dom mitations,
+. first the btn compoenent has new text,
+. the work need to be done in the fiber is a dom update.
+. in this example code is is swapping code from hide to Rate.
+. Next the Modal, Overlay, h3 and button which is another component and not present in updated virtual DOm will be Marked as DOM Deletions.
+. The Video Component will be re-rendered because it is the child compoenent of App Component.
+. but it actuallu dod not change.
+. so as a result of reconciliation
+. The Dom will not be Updated in this case
+. Once this process is over, all the DOM mutations will be placed in a list called list of Effects.
+.This List of effects will be used in the next phase Called Commit Phase.
+. The Commit phase actually mutate the dom.
+. the result of the render phase is the updated fiber tree and the list of DOm updates.
+. react not yet written anything to the DOm.
+. COMMIT PHASE
 .
