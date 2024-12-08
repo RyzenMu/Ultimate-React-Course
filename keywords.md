@@ -632,3 +632,70 @@ ract can be worked with different platforms so calledd hosts.
 . Summarise ALL The Phases.
 .1. trigger Phase - happens on initial render and state updates
 .2. Render Phase - which does not produce any visual output, this phase starts by rendering all the instances that need a re-render, in react rendering means simply calling react functions. This will create one or more react elements which will be placed ina a new virtual dom (which is a simple tree of react elements), rendering a component means rendering all of its child component as weell (no matter if props changed or not). This is beaciuse react doen not know whether the child components are affected or not by the parent component, for the sake of safety , the react will render the component and its childs.This new Virtual DOm wwill bw reconciled with the current fiber tree (representation of Dom before state update). This happens because constructing entire dom tree is really slow. Reconciliation will reuse much of the components a s posiible, by finding the smallest number of dom updates that reflect the state update on the screen, this reconciliation process is done by using a reconciler calledd Fiber, which works with a mutable data structure, calledd the fibre tree, in this tree for each react element and dom element there is a fibre, this fibre holds the actual compoenent state, props and a queue of work. After reconciliation this queue of work will contain dom updates, that are neede for that element.
+now the computation of the dom updates are performed by a diffing algorithmn which step by step compares the elements in the new virtual dom with the elements in the current fiber tree, the result of this reconciliarion process is the second uodated fiber tree and a list of all necassary dom updates, it is impoertant to know that reender phase is asunchronous, so fiber can priortize and split work into chunks and pause and resume work later, this is necessaary for concurrent feaatures, and also prevents js engine to be blocked by complex rendering process,
+3.the ouput of the rendder phase (list of updates) will finally actually be written to the dom in the commit phase, so in this phase so called a render (in this case React-DOm) will insert, delete and update DOM elements, so end up with an updated dom that reflects a new state of the application. Unlike the renderr phase , the commit phase is synchronous, so all the ddom updates are performed in one go in order to ensure consistent ui over time, now once the browser realises that the dom hass beeen updated 4. It starts the new browser paint
+in order to visually represent on the screen
+
+HOW DIFFING WORKS:
+. diffing is base on two fundamental assumptions,
+. 1. two elements of different types will produce different trees,
+. 2. elements with a stable key prop stay the same across renders
+. this allows React to go from 1, 000, 000, 000 [O(n3)] to 1000 [O(n)] operations per 1000 elements.
+. 1. SAme position, Different ELement. --- in this casse react assumes entire sub-tree is no longer valid. so Old componnets are destroyedd and removed from DOM, including state. Tree might be re-bult if children stayed the same (state is reset). The Same is appled for React Compoent as same as DOm ELement like <div> 2. SAme Position, Same Element -- Element will be kept (as weell as child lements), including state. this works for Dom elements and react and react elements as well. new props / attributes are passed if they changed between renders. some times this is not we want.. Then we can use thet key prop. So we want new element with different state this give rise to KEYPROP.
+
+DIFFING RULES IN PRACTICE:
+.
+. Key Prop - is a special prop that we use to tell the diffing algorithm that an element is unique.
+. key prop works for both dom elements and react elements.
+. key prop allows React to distinguish between multiple instances of the same component type.
+. when a key stays the same across renders, the element will be kept in the DOM (even if the position in the tree changes).
+. 1. using keys in the lists
+. when a key changes between renders, the element will be destroyed and a new one will be createdd (even if the position in the tree is the same as before)
+. example: without keys : same elements, but different position in tree, so they are removed and recreatedd in the DOM (bad for performance).
+.example: with keys : even the position changes with keys, the will not be re-created during rendeers, so the elements will be kept in the DOM (good for performance)
+Always use key when using same components , in this case <Question>
+. 2. using Key Prop to reset state -- if we have the same element at the same position in the tree, the DOM element and state will be kept. Now the Answer state was perserved Not we wanted, if we give unique key with same prop the state was reset
+
+KEY PROP:
+. If we give Key same to components , react will consider as a unique component insatnce.
+.
+RULES FOR RENDER LOGIC : PURE COMPONENTS
+. There are two types of logic in react components.
+
+1. Render Logic
+2. Event Handler Functions.
+
+Render Logic:
+. code that lives at the top level of the component function.
+. participates in describing how the component view lloks like.
+. executes every time the component renders.
+
+Event Handler Functions:
+. executed as a consequence of the event that the handler is listening for (change Event in this example).
+. Code that actually does things: update state, perform an HTTP request, read an input field, navigate to another page, etc.
+
+REFRESHER: FUNCTIONAL PROGRAMMING PRINCIPLES:
+.Side effect: dependency on or modification of any data outside the function scope. "Interaction with the outside world". Examples: mutating external variables, HTTP requests, writing to DOM.
+. Any muation outside the scope is a Side-effect.
+. side effects are not bad! A program can only be useful if it has some interaction with the outside world.
+. Pure Function: a function that hass no side effects.
+
+PureFunctions:
+. Does not change any variables outside its scope.
+. Given the same input, a pure function always returns the same output.
+
+Impure Functions: gives unpredictable output.
+
+Rules for Render Logic:
+. Components must be pure when it comes to render logic: given the same props(input), a component instance should always return the same JSX(output).
+. render logic must produce no side effects: no interaction with the "outside world" is allowed, So in render logic:
+-- Do Not perform network requests (API calls).
+--Do not start timers.
+--Do not directly use the DOM API.(add Event Listener).
+-- Do not mutate objects or variables outside of the function scope. (this is why we cannot mutate props).
+-- Do not update state (or refs): this will create an infinite loop.
+-- Do not use console.log() & random numbers.
+. Side effects are allowed (and encouraged) in evevnt functions!. There is also a special hook to register side effects (useEffect).
+
+STATE UPDATE BATCHING:
+.
