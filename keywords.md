@@ -604,4 +604,31 @@ there's also batching of multiple setState calls in event handler..
 . React writes to the dom -- insertions, deletions, updates (list of dom updates are "flushed" to the DOM).
 . writing to dom elements in one go.
 . committing is synchronous: DOM is updated in one-go, it can't be interuptted. This is necesasarry so that the DOM never shows partial results, ensuring a consistent UI (in sync with state at all times).
-.
+.rendering phase can be paused
+. commit pahse always happen in one go because, Dom never show partial results.
+. The reason why render phase is pasued and continued and commit phase happens in one is The DOm nevwe shows parttial results.
+. After the commit phase completes, the workInProgress fiber tree becomes the current tree for the next render cycle.
+. Remember that Fiber tree are neverr discarded and never re-created from scratch, instead they are reused in order to save precious rendering time.
+. the commit phasse is now completed.
+.THE BROWSER PAINT PHASE
+. the the Browserr notices that the dom has been changed and as a result it will paint the screen whenever it has the idle tile.
+. now this DOm updayes are visible to the user in the form of updated user interface.
+. render phase id done by eract
+. browser phase is done by browser.
+. but the commit phasse is done by React-DOm libraray.
+.react itself never touches the Dom, in fact it has no idea, where the result of render phase is committed and painted.
+. the reason for react not doing commit phase is that the react waas designedd for independently for elements will actually be shown.
+ract can be worked with different platforms so calledd hosts.
+. 90% of the cases we use react for weebdevelopment,
+. but with help of otherr hosts , 10% react is used for andriod app development and ios app development called called cross-platform mobile app development.
+. We can laso build videos with react using Remotion.
+. WE have use various applications msword, pdf, figma designs so called renderers (platforms).
+. the render's will not render, but commit the results of render phase, (weird terminology tho),
+. In all other situations of the render phase not really a list of dom updates, but a list of updates of whateverr elemets are used in the host, that's being used, so the term virtual dom doesn't make much sense.
+. react team names it as react element tree.
+. react doesnot write to Dom.
+. react writes toa a host, in this case it is a React Dom , this react dom writes to the DOM.
+. as earlier mentiond react has various host.
+. Summarise ALL The Phases.
+.1. trigger Phase - happens on initial render and state updates
+.2. Render Phase - which does not produce any visual output, this phase starts by rendering all the instances that need a re-render, in react rendering means simply calling react functions. This will create one or more react elements which will be placed ina a new virtual dom (which is a simple tree of react elements), rendering a component means rendering all of its child component as weell (no matter if props changed or not). This is beaciuse react doen not know whether the child components are affected or not by the parent component, for the sake of safety , the react will render the component and its childs.This new Virtual DOm wwill bw reconciled with the current fiber tree (representation of Dom before state update). This happens because constructing entire dom tree is really slow. Reconciliation will reuse much of the components a s posiible, by finding the smallest number of dom updates that reflect the state update on the screen, this reconciliation process is done by using a reconciler calledd Fiber, which works with a mutable data structure, calledd the fibre tree, in this tree for each react element and dom element there is a fibre, this fibre holds the actual compoenent state, props and a queue of work. After reconciliation this queue of work will contain dom updates, that are neede for that element.
