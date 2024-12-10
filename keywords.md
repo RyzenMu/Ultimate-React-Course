@@ -698,4 +698,5 @@ Rules for Render Logic:
 . Side effects are allowed (and encouraged) in evevnt functions!. There is also a special hook to register side effects (useEffect).
 
 STATE UPDATE BATCHING:
+.Renders are not triggered immediately, but scheduledd for when the JS engine has some "free time". There is also batching of multiple setState calls in event handlers.
 .
