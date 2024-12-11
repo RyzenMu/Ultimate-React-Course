@@ -708,4 +708,100 @@ will be re-rendered in one go , not one re-rendering for one state.
 . before react 18 if reset function is called then batching will not happen and render 3 times one by one.
 . From react 18 native events like el addEventListener('click', reset) is also batched, earlier native elements were not batched.
 .We can opt out of automatic batching by wrapping a state update in ReactDOm.flushSync() (but you will never need this).
-.
+. updation of state is asynchronous , in a batch if same state is updated three times, the result will be the state will be updated only once.
+. in this casse state is stale.
+. use update as a callback function insteadd of a value.
+
+HOW EVENTS WORK IN REACT:
+Dom Refresher : Event Propogation and Event Delegation:
+
+1. Capturing Phase -- when an btn is clicked , an event object is created at the root the document and trqvels until it reaches the clicked btn.
+2. Target element -- is the element in which the event is trigerred.
+   . at the target we can choose to handle the event by passing a function.
+3. Bubbling Phase -- the event will start from target element and reach to the top (root of the document).
+
+Two impoprtant points to note is :
+
+1. During capturing phase and bubbling phase , the event is passed through every child of the element.
+2. By default the event handlers listen to events on the target and during the bubbling phase.
+
+means that when an handler function is set on one of the parent , then both the target function qnd the parent function will be called, which is not we wanted.
+
+In this casse we can prevent bubbling with e.stopPropogation().
+
+Using the Bubbling property , developers found event delegation.
+
+Event Delegation: handling events for multiple elements centrally in one single parent element.
+
+1. instead of adding event handlerr to 1000 buttons , add only one event handler to first parent element (div).
+2. check for target element. (e.target).
+3. if target is one of the buttons handle the event.
+
+Event delegation is mostly used in vanilla js.
+React mostly dont require event delegation technique.
+
+1. some times strange behaviours may happen in react apps.
+
+React registers all event handlers on the root DOM container.This is where all evevts are handled.
+
+Behind the scenes react performs event delegation for all the events in pur application.
+
+React one event handler per event type.
+
+in React if One Click is happened , the event will pass from head of the document to the tatget and travel up (bubbing phase ) from target to root element when the event will match with the corresponding handlers & target element and executed.
+
+DOM tree is important than component tree.
+
+if one component is child of another component in component tree, then it is not true for DOM tree.
+
+Synthetic Events:
+
+1.Wrapper around the DOM's native event object. 2. HAs same interfacce as native event objects, like stop propogation() and prevent default. 3. Fixes browser inconsistencies, so that events work in the exact same way in all browsers.
+
+Most synthetic events bubble (including focus, blur, and change ), except for scroll.
+
+Rules for Event Handlers in React:
+. Unlike vanilla js , the event handlers are named using camelCase (onClick) in vjs => onclick.
+. in vjs whenever we want to stop the default behavior of the browser in response to an event, we can return false, from the event handler function.
+one big example of that is browser reloading the page after submitting.
+. if we return a false in react event handler that will not work,
+. the only way to prevent default behaviour is e.preventDefault(.) on the synthetic event object.
+. Attach 'capture' if you need to handle during capture phase (exapmle : onClickCapture)
+
+LIBRARIES VS FRAMEWORKS AND THE REACT ECOSYSTEM:
+
+Frameworks:
+
+1. All in one kit
+2. Frameworks include everything (HTTPrequests, Styling, Routing, Form management) all out of the box.
+3. Ease of Mind: Everything you need to build a complete application is included in the framework ("batteries included").
+
+Libraries:
+
+1. React is only view library, rest feature like routing, styling HTTPrequests, form management should be impoerted from other libraries.
+2. more freedom
+3. decision fatigue.
+
+3rd Party Library Ecosysytem:
+
+1. Routing for SPA - React Router and React Location.
+2. Http request - vjs fetch and axios
+3. Remote state management - React Query, SWR and Apollo.
+4. Global state management - context APi, Redux and Zustand.
+5. Styling = css modules, styled components and tailwindcss.
+6. form management - react hook form and formik
+7. Animations/ transitions - Motion and react spring.
+8. UI COmponent -Material UI, chakra and mantine.
+
+FRAMEWORKS BUILT ON TOP OF REACT: (opiniated react frameworks)
+
+1. NextJs
+2. Remis
+3. Gatsby
+
+many frameworks specalises in some thing.
+Most frameworks offloads setup process.
+
+react frameworks offer many other features like - ssr, staic site generation, better developer experience (DX) etc.
+
+Also known as Full stack react frameworks.
