@@ -699,4 +699,13 @@ Rules for Render Logic:
 
 STATE UPDATE BATCHING:
 .Renders are not triggered immediately, but scheduledd for when the JS engine has some "free time". There is also batching of multiple setState calls in event handlers.
+. It is a performance optimization technique, on one click 3 setState()
+will be re-rendered in one go , not one re-rendering for one state.
+. Just one render and commit per event handler.
+. Do not console log into batching, because the render is asynchronous and not uodatedd yet.
+.if we need to update state based on previous update, we use setState with callback (setAnswer(answer=> ...)).
+.Automatic Batching for timeouts and prommises are available from react 18.
+. before react 18 if reset function is called then batching will not happen and render 3 times one by one.
+. From react 18 native events like el addEventListener('click', reset) is also batched, earlier native elements were not batched.
+.We can opt out of automatic batching by wrapping a state update in ReactDOm.flushSync() (but you will never need this).
 .
