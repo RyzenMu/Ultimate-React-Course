@@ -796,7 +796,7 @@ Libraries:
 FRAMEWORKS BUILT ON TOP OF REACT: (opiniated react frameworks)
 
 1. NextJs
-2. Remis
+2. Remix
 3. Gatsby
 
 many frameworks specalises in some thing.
@@ -805,3 +805,17 @@ Most frameworks offloads setup process.
 react frameworks offer many other features like - ssr, staic site generation, better developer experience (DX) etc.
 
 Also known as Full stack react frameworks.
+
+PRACTICAL TAKEAWAYS:
+. A component is like a bluprint for a poece of UI that will eventually exist on the screen. When we "use" a component, React creates a component instance, which is like an actual physical manifestation of a component, containing props, state and more. A component instance, when rendered, will return react element.
+. "rendering" only means calling component functions and calculating what DOM elements need to be inserted, deleted or updated. it has nothing to do with writing to the DOM. THerefore, each time a component instance is rendered and re-rendered, the function is called again.
+. only the initial app render and state updates can cause a render, which happens for the entire application, not just one single component.
+. When a component instance gets re-rendered , all its children will get re-rendererd as well. This doesn't mean that all children will get updated in the DOM, thanks to reconciliation, which checks which elements have actually changed between two renders. But all this re-rendering can still have an impact on performance (more on that later in the course).
+. Diffing is how React decides which DOm elements need to be added or modified. if, between renders, a certain React element stays at the same position in the element tree, the corresponding DOm element and component state will stay the samw. if the element changed to a different position, or if it's a different type, the DOm element and state will be destroyed.
+. Giving elements a key prop allows react to distinguish between multiple component instances. when a key stays the same across renders, the element is kept in the DOm. This is why we need to use keys in lists. When we change the key between renders, the DOm element will be destroyed and rebuilt. We use this as a trick to reset state.
+.Never declare a new component inside another component! Doing so will re-create the nested component every time the parent compoenent re-renders. React will always see the nested component as new, and therefore reset its state each time the parent component is updated.
+. the logic that produces JSX output for a component instance ("render logic") is not allowed to produce any side effects: np API calls, no timers, no object or variable mutations, no state updates. Side effects are allowed in event handlers and useEffect(next Section).
+. The DOM is updated in the commit phase, but not by React, but by a "renderer" calledd ReactDOM. That's why we always needd to include both libraries in a React web app project. We can use other renderers to use React on different platforms, for example to build mobile or native apps.
+. Multiple state updates inside an event handler function are batched, so they happen all at once, causing only one re-render. This means we can not access a state variable immediately after updating it: state updates are asynchronous. Since React 18, batching also happens in timeouts, promises, and native event handlers.
+. When using event handlers, we get access to a synthetic event object, not the browse's native object, so that events work the same way across all browsers. The difference is that most synthetic events bubble, including focus, blur, and change, which do not bubble as native browser events. Only the scroll event does not bubble.
+.React is a library, not a framework. This means that you can assemble your application using your favorite third-party libraries. The downside is that you need to find and learn all these additional libraries. No problem, as you will learn about the most commonly used libraries in the course.
