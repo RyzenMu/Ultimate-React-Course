@@ -819,3 +819,20 @@ PRACTICAL TAKEAWAYS:
 . Multiple state updates inside an event handler function are batched, so they happen all at once, causing only one re-render. This means we can not access a state variable immediately after updating it: state updates are asynchronous. Since React 18, batching also happens in timeouts, promises, and native event handlers.
 . When using event handlers, we get access to a synthetic event object, not the browse's native object, so that events work the same way across all browsers. The difference is that most synthetic events bubble, including focus, blur, and change, which do not bubble as native browser events. Only the scroll event does not bubble.
 .React is a library, not a framework. This means that you can assemble your application using your favorite third-party libraries. The downside is that you need to find and learn all these additional libraries. No problem, as you will learn about the most commonly used libraries in the course.
+
+12. EFFECTS AND DATA FETCHING:
+    .Data fetching is essential
+    .Effects with useEffect hook.
+    .Effect CLeanup
+    .Realworld Application.
+
+COMPONENT LIFE CYCLE:
+. Step1 - Mount/Initial Render --> component instance is rendered for the first time --> fresh state and props are created.
+. Step-2 - It can be re-rendered for unlimited number of times --> when state changes --> when prop changes -- parent component re-renders --> context changes --> re-render phase is completely optional.
+.step-3 - UnMount --> component instance is complettely destroyed and removed from the screen. --> state and props are destroyed --> we can define code to run at these specific points in time.
+
+HOW NOT TO FETCH DATA ON REACT:
+.we should update state in render logic.
+. Omdb API is used for movies list.
+. Omdb is the open version of imdb.
+.
