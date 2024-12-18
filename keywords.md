@@ -835,4 +835,36 @@ HOW NOT TO FETCH DATA ON REACT:
 .we should update state in render logic.
 . Omdb API is used for movies list.
 . Omdb is the open version of imdb.
+. Do Not use fetch function on the render logic. always..........
+. Fetch functions runs infinite number of request if placed in the render logic.
+. Fetch function really do not stop.
+. This multiple re-rendering happens because the re-rendering takes place when the setMovies is set , when triggered fetches again and again...
+. so do not use set state inside rendering logic.
+. useEffect Hook is used for solving this infinite-re-rendering problem.
+
+USE EFFECT TO THE RESCUE:
+.useEffect hook is used for writing side effects like data fetching.
+. useEffect code will be rendered after some renders.
+. useEffect code will be executed after initial render.
+. useEffect doesnot return anything
+. useEffect runs the function within it , with a dependency array.
+
+FIRST LOOK AT EFFECTS:
+. Side Effect: a side effect is basically any "interaction between a react component and the world outside the component". we can slso think of a side as "code that actually does something". Examples: Data fetching, setting up subscriptions, setting up timers, manually accessing the DOM. etc.
+. we need side effects all the time. They make our applications do something. Not in render logic.
+. side effects can be made in two places 1. Event Handlers 2. UseEffect.
+. some times event handlers is not enough for the application needs
+. useEffect is created by rendering.
+. Effects allows us to code that will run at different moments: mount, re-render and un-mount.
+. Fetching movie data is clearly a side-effect.
+
+. EV: Executed when the corresonding event happens.
+
+Eff: Executed after the component mounts (initial render), and after subsequent re-renders (according to dependency array).
+. clean up function inside the use effect cleans up before the component re-render and when unmounts.
+. Thinking about synchronization , not lifecycles: Used to keep a component synchronized with some external system (in this example, with the API movive data).
+. Eh is used for changes in UI.
+. Eff is used for chanhes in external world.
+. Event handlers are the preferrref way for causing side effects.
+. Do not Overuse useEffect Hook.
 .
