@@ -868,3 +868,27 @@ Eff: Executed after the component mounts (initial render), and after subsequent 
 . Event handlers are the preferrref way for causing side effects.
 . Do not Overuse useEffect Hook.
 .
+
+USING AN ASYNC FUNCTION:
+. setting state is asynchronous.
+. console log state will not work immediately.
+. two outputs happen because of strict mode.
+
+ADDING A LOADING STATE:
+. use slow 3g for testing
+. set loading = false before fetching
+. set loading = true after fetching
+
+HANDLING ERRORS:
+.for any asynchronous function(fetch) always use try and catch block.
+. if (!res.ok) throw new Error("Something went wrong").
+. set isLoading to false in finally section.
+. conditionally render error messages.
+
+USEeFFECT DEPENDENCY ARRAY:
+. by default, effects run after every render. we can prevent that by passing a dependency array.
+. without the dependency array, React doesn't know when to run the effect.
+. Each time one of the dependencies changes, the effect will be executes again.
+. Every state variable and prop used inside the effect Must be included in the dependency array.
+. Otherwise, we get a "stale closure" We will go more into depth in a future section.
+.
