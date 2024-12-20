@@ -76,9 +76,7 @@ function Logo() {
     </div>
   );
 }
-function Search() {
-  const [query, setQuery] = useState("");
-
+function Search({ query, setQuery }) {
   return (
     <input
       className="search"
@@ -99,37 +97,72 @@ export default function App() {
   const [watched, setWatched] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
+  const [query, setQuery] = useState("inception");
+  const [selectedId, setSelectedId] = useState(null);
+
   const KEY = "d667dffb";
-  const query = "weefngwk";
+  const tempQuery = "interstellar";
+
+  /*
   useEffect(function () {
-    async function fetchMovies() {
-      try {
-        setIsLoading(true);
-        const res =
-          await fetch(`http://www.omdbapi.com/?apikey=${KEY}&s=${query}
+    console.log("After initial render");
+  }, []);
+
+  useEffect(function () {
+    console.log("After every rendeer");
+  });
+
+  console.log("During render");
+
+  useEffect(
+    function () {
+      console.log("state update");
+    },
+    [query]
+  );
+  */
+
+  useEffect(
+    function () {
+      async function fetchMovies() {
+        try {
+          setIsLoading(true);
+          setError("");
+          const res =
+            await fetch(`http://www.omdbapi.com/?apikey=${KEY}&s=${query}
       `);
 
-        if (!res.ok)
-          throw new Error("Something went wrong with fetching movies");
-        const data = await res.json();
-        if (data.Response === "False") throw new Error("Movie not found");
-        setMovies(data.Search);
-        // console.log(movies); // this is asunchronous code
-      } catch (err) {
-        console.error(err.message);
-        setError(err.message);
-      } finally {
-        setIsLoading(false);
+          if (!res.ok)
+            throw new Error("Something went wrong with fetching movies");
+          const data = await res.json();
+          if (data.Response === "False") throw new Error("Movie not found");
+          setMovies(data.Search);
+          console.log(data.Search);
+          // console.log(movies); // this is asunchronous code
+        } catch (err) {
+          console.error(err.message);
+          setError(err.message);
+        } finally {
+          setIsLoading(false);
+        }
       }
-    }
-    fetchMovies();
-  }, []);
+
+      if (query.length < 3) {
+        setMovies([]);
+        setError("");
+        return;
+      }
+
+      fetchMovies();
+    },
+    [query]
+  );
 
   return (
     <>
       <Navbar>
         {" "}
-        <Search />
+        <Search query={query} setQuery={setQuery} />
         <NumResults movies={movies} />
       </Navbar>
       <Main>
@@ -140,8 +173,14 @@ export default function App() {
           {error && <ErrorMessage message={error} />}
         </Box>
         <Box>
-          <WatchedSummary watched={watched} />
-          <WatchedMoviesList watched={watched} />
+          {selectedId ? (
+            <MovieDetails selectedId={selectedId} />
+          ) : (
+            <>
+              <WatchedSummary watched={watched} />
+              <WatchedMoviesList watched={watched} />
+            </>
+          )}
         </Box>
         {/* <Box element={<MovieList movies={movies} />} />
         <Box
@@ -228,6 +267,10 @@ function Movie({ movie }) {
       </div>
     </li>
   );
+}
+
+function MovieDetails({ selectedId }) {
+  return <div className="">{selectedId}</div>;
 }
 
 function WatchedSummary({ watched }) {

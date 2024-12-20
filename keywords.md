@@ -891,4 +891,40 @@ USEeFFECT DEPENDENCY ARRAY:
 . Each time one of the dependencies changes, the effect will be executes again.
 . Every state variable and prop used inside the effect Must be included in the dependency array.
 . Otherwise, we get a "stale closure" We will go more into depth in a future section.
+
+USEEFFECT IS A SYNCHRONIZATION MECHANISM:
+. useEffect is like an event listener that is listening for one dependency to change. Whenever a dependency changes, it will execute the effect again.
+. effects are used for synchronising with external system.
+. component state/prop --> Synchronize with --> External system(side effect).
+. Effects react to updates to state and props used inside (the dependencies). So effects are "reactive" (like state updates re-rendering the UI).
+. Effects and component lifecycle are deeply connected.
+. we can use the dependency array to run effects when the component renders or re-renders.
+. Case 1: Multiple dependencies, Effect synchronizes with x, y and z. Runs on mount and re-renders trigerred by updating x, y or z.
+. Case 2: Empty dependency, Effect synchronizes with no state/props. Runs only on mount (initial render).
+. Case 3: No Array, Effect synchronizes with everything. Runs on every render (usually bad).
+
+WHEN ARE EFFECTS EXECUTED:
+. Effects are executes at last(after browser paint) beacuse, if an effect sets state, an additional render will be required, effect may contain long running processes, such as fetching data, in that case if reacct executes the effect then users will see the old vwesion of the app way too long.
+. effects run asynchronously after painted.
+. layout Effect --> Another type of effect that is very rarely necessary. (uselayoutEffect).
+
+Mount (initial render)
+Commit
+Browser Paint
+EFFECT
+title Changes
+re-render
+commit
+LAYOUT EFFECT
+Browser Paint
+EFFECT
+Unmount
+
+SYNCHRONIZING QUERIES WITH MOVIE DATA:
+. use network tab of chrome to identify the response status and response data.
+. network tab is very important tool.
+. always setError('') to empty string before another useEffect takes place.
+. if the state of error is a message then react will return the previous error which is saved in the cache.
+
+SELECTING A MOVIE:
 .
