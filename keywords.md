@@ -927,4 +927,10 @@ SYNCHRONIZING QUERIES WITH MOVIE DATA:
 . if the state of error is a message then react will return the previous error which is saved in the cache.
 
 SELECTING A MOVIE:
+.&larr; is left arrow in html.
+
+LOADING MOVIE DETAILS:
+. values of empty object is undefined.
+
+ADDING A WATCHED MOVIE:
 .

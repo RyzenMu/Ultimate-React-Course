@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import StarRating from "./StarRating";
 
 const tempMovieData = [
   // {
@@ -25,26 +26,26 @@ const tempMovieData = [
 ];
 
 const tempWatchedData = [
-  // {
-  //   imdbID: "tt1375666",
-  //   Title: "Inception",
-  //   Year: "2010",
-  //   Poster:
-  //     "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SX300.jpg",
-  //   runtime: 148,
-  //   imdbRating: 8.8,
-  //   userRating: 10,
-  // },
-  // {
-  //   imdbID: "tt0088763",
-  //   Title: "Back to the Future",
-  //   Year: "1985",
-  //   Poster:
-  //     "https://m.media-amazon.com/images/M/MV5BZmU0M2Y1OGUtZjIxNi00ZjBkLTg1MjgtOWIyNThiZWIwYjRiXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg",
-  //   runtime: 116,
-  //   imdbRating: 8.5,
-  //   userRating: 9,
-  // },
+  {
+    imdbID: "tt1375666",
+    Title: "Inception",
+    Year: "2010",
+    Poster:
+      "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SX300.jpg",
+    runtime: 148,
+    imdbRating: 8.8,
+    userRating: 10,
+  },
+  {
+    imdbID: "tt0088763",
+    Title: "Back to the Future",
+    Year: "1985",
+    Poster:
+      "https://m.media-amazon.com/images/M/MV5BZmU0M2Y1OGUtZjIxNi00ZjBkLTg1MjgtOWIyNThiZWIwYjRiXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg",
+    runtime: 116,
+    imdbRating: 8.5,
+    userRating: 9,
+  },
 ];
 
 const average = (arr) =>
@@ -122,6 +123,17 @@ export default function App() {
   );
   */
 
+  function handleSelectMovie(id) {
+    setSelectedId((selectedId) => (id === selectedId ? null : id));
+  }
+
+  function handleCloseMovie() {
+    setSelectedId(null);
+  }
+
+  function handleAddWatched(movie) {
+    setWatched((watched) => [...watched, movie]);
+  }
   useEffect(
     function () {
       async function fetchMovies() {
@@ -169,12 +181,18 @@ export default function App() {
         {/* <Box>{isLoading ? <Loader /> : <MovieList movies={movies} />}</Box> */}
         <Box>
           {isLoading && <Loader />}
-          {!isLoading && !error && <MovieList movies={movies} />}
+          {!isLoading && !error && (
+            <MovieList movies={movies} onSelectMovie={handleSelectMovie} />
+          )}
           {error && <ErrorMessage message={error} />}
         </Box>
         <Box>
           {selectedId ? (
-            <MovieDetails selectedId={selectedId} />
+            <MovieDetails
+              selectedId={selectedId}
+              onCloseMovie={handleCloseMovie}
+              onAddWatched={handleAddWatched}
+            />
           ) : (
             <>
               <WatchedSummary watched={watched} />
@@ -244,19 +262,19 @@ function WatchedBox() {
 }
   */
 
-function MovieList({ movies }) {
+function MovieList({ movies, onSelectMovie }) {
   return (
-    <ul className="list">
+    <ul className="list list-movies">
       {movies?.map((movie) => (
-        <Movie movie={movie} key={movie.imdbID} />
+        <Movie movie={movie} key={movie.imdbID} onSelectMovie={onSelectMovie} />
       ))}
     </ul>
   );
 }
 
-function Movie({ movie }) {
+function Movie({ movie, onSelectMovie }) {
   return (
-    <li>
+    <li onClick={() => onSelectMovie(movie.imdbID)}>
       <img src={movie.Poster} alt={`${movie.Title} poster`} />
       <h3>{movie.Title}</h3>
       <div>
@@ -269,8 +287,90 @@ function Movie({ movie }) {
   );
 }
 
-function MovieDetails({ selectedId }) {
-  return <div className="">{selectedId}</div>;
+function MovieDetails({ selectedId, onCloseMovie, onAddWatched }) {
+  const KEY = "d667dffb";
+  const [movie, setMovie] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
+  const {
+    Title: title,
+    Year: year,
+    Poster: poster,
+    Runtime: runtime,
+    imdbRating,
+    Plot: plot,
+    Released: released,
+    Actors: actors,
+    Director: director,
+    Genre: genre,
+  } = movie;
+  console.log(title, year);
+  function handleAdd() {
+    const newWatchedMovie = {
+      imdbID: selectedId,
+      title,
+      year,
+      imdbRating: Number(imdbRating),
+      runtime: Number(runtime.split(" ").at(0)),
+    };
+    onAddWatched(newWatchedMovie);
+  }
+  useEffect(
+    function () {
+      async function getMovieDetails() {
+        setIsLoading(true);
+        const res =
+          await fetch(`http://www.omdbapi.com/?apikey=${KEY}&i=${selectedId}
+`);
+        const data = await res.json();
+        console.log(data);
+        setMovie(data);
+        setIsLoading(false);
+      }
+      getMovieDetails(selectedId);
+    },
+    [selectedId]
+  );
+  return (
+    <div className="details">
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <>
+          <header>
+            <button className="btn-back" onClick={onCloseMovie}>
+              &larr;
+            </button>
+            <img src={poster} alt={`poster of ${title}`} />
+            <div className="details-overview">
+              <h2>{title}</h2>
+              <p>
+                {released} &bull; {runtime}
+              </p>
+              <p>{genre}</p>
+              <p>
+                <span>⭐</span>
+                {imdbRating} IMDB rating
+              </p>
+            </div>
+          </header>
+          <section>
+            <div className="rating">
+              <StarRating maxRating={10} size={24} />
+              <button className="btn-add" onClick={handleAdd}>
+                {" "}
+                + Add to list
+              </button>
+            </div>
+            <p>
+              <em>{plot}</em>{" "}
+            </p>
+            <p> Starring {actors}</p>
+            <p>Directed by : {director}</p>
+          </section>
+        </>
+      )}
+    </div>
+  );
 }
 
 function WatchedSummary({ watched }) {
