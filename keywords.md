@@ -934,3 +934,16 @@ LOADING MOVIE DETAILS:
 
 ADDING A WATCHED MOVIE:
 .
+
+ADDING A NEW EFFECT - CHANGING PAGE TITLE:
+.Changing the title is interacting with the outside world.
+. so we should create a side effect using useEffect hook again
+. to change title use "document.title = 'TEST' "
+. restarting the page will mount again
+. before selecting the movie (i.e while mounting) the title is undefined ,
+. once the movie is selected the title will not change because of empty dependency array[].
+. so give title inside dependency array.
+. While mounting the title temporarily will be undefined, but changes when the title arrives.
+. initially the title will be which we have given in the index .html
+. only when the movide details component is rendred then the title changes from undefinedd to moview| {title}.
+.

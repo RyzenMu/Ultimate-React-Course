@@ -347,6 +347,15 @@ function MovieDetails({ selectedId, onCloseMovie, onAddWatched, watched }) {
     },
     [selectedId]
   );
+
+  useEffect(
+    function () {
+      if (!title) return;
+      document.title = `Movie | ${title}`;
+    },
+    [title]
+  );
+
   return (
     <div className="details">
       {isLoading ? (
@@ -472,6 +481,7 @@ function WatchedMovie({ movie, onDeleteWatched }) {
         onClick={() => onDeleteWatched(movie.imdbID)}
       >
         {" "}
+        X
       </button>
     </li>
   );
