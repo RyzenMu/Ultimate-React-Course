@@ -946,4 +946,66 @@ ADDING A NEW EFFECT - CHANGING PAGE TITLE:
 . While mounting the title temporarily will be undefined, but changes when the title arrives.
 . initially the title will be which we have given in the index .html
 . only when the movide details component is rendred then the title changes from undefinedd to moview| {title}.
+
+CLEAN-UP FUNCTION:
+. on closing the movie details , the usePopcorn title was not shown in the title but the last closed title was shown instead.
+. so clean-up function is used to put the original title.
+. clean=up function is used after unmount.
+. clean-up function is used between re-renders or effect is executed again ,
+. clean-up function is used to return from an effect.
+. when an http request is happening in the useEffect, when the component is re-rendered while the request is still running, a new second request will be fired of, this might create a bug called RACING CONDITION.
+. Now it is a good idea to clean-up (cancel) the old request before new request executes.
+. Another Example where clean-up function is used.
+. 1.Http request --> cancel request.
+. 2. API subscription --> cancel subscription.
+. 3. Start timer --> Stop timer.
+. 4. Add Event Listener --> remove Event Listener.
+. Each effect should do only one thing!. use one useEffect hook for each side effect. This makes effects easier to clean up.
+. When we press back button the Movie Details is un-mounted so the clean-up function is executed.
+. useEffect runs at last.
+
+CLOSURE:
+. Javascript remembers the title after the Component and its states are destroyed because of the concept called closures.
+. closures means an function will always remember all the variables that were present at the time and place where the function was created.
+.
+
+CLEANING UP DATA FETCHING:
+. mULTIPLE request will slow down each of the request.
+. downloading too many data , which we will not require. example (matrix , matrix reloaded).
+. while tying each letter, a new request is created
+. if a intermediate response is received , then it will be rendered before typing next letter,
+. so to stop intermediate rendering,
+. One major issue is if that intermediate request took more time , then it will be rendred in the UI (deleting the required request).
+. we wxactly want the last request of all , which matters.
+. The above problem is called an Racing Condition.
+. To SOlve the Racing Condition we use a function called abortCOntroller.
+
+ABORT CONTROLLER:
+. we use abort controller inside our cleanup function.
+. AbortController ian an browser API.
+. Abort Controller has nothing to do with React.
+. Similarly fetch() is also Browser API. Fetch has nothing to do with React.
+. use {signal : controller.signal} inside function.
+. Abort controller cancels previous request and runs only the last request.
+. for every key stroke, the component re-renders, while re-rendering happens the cleanup function is called which cancels the running fetch (controller.abort).
+. But Javascript sees the canceled request as an error and displays error messaage on the UI.
+
+ONE MORE eFFECT : LISTENING TO KEY PRESS:
+. while pressing the escape kaey in the keyboard the back button function works.
+. this is done by adding an event-listener to the entire document.
+. this key press is clearly a side-effect.
+. so need an useEffect.
+. react team refers useEffect as escape hatch because it often creates a side-effect.
+.Escape-hatch:no need to write code as per react way.
+. move the escape keydown useEffect to movieDetails component, because it can be only used when there is any movie present, otherwise when any one presses the esc key when no movie is loaded, then the useEffect function will not work.
+. Even functions can be used as a dependency.
+. Whenever a new MovieDetails is created, a new event-listener is added to the document in additio to the one we already have.
+. This is not what we want.
+. so we need to cleanup our event listeners too.
+. This More event -listeners will create memory problem in large applications, so one should clean up all the event listerners.
+. addEventListener and removeEventListener should point to the same function , so we should create a common function with a name.
+. use console.error instead of console.log
+. whenerver we search, we close the current movie.
+. fetching a movie --> ia a event handler function, so there is no need of useEffect.
+. in some situations , we need to fetch on mounting, in those places we require useEffect instead of event listener.
 .
