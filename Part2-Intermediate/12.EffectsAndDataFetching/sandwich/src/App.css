@@ -1,0 +1,95 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+  background-color: rgb(66, 141, 116);
+  font-family: sans-serif;
+}
+
+.SearchBar {
+  background-color: rgb(183, 196, 106);
+  color: blue;
+  height: 3rem;
+  display: flex; /* Use Flexbox for layout */
+  align-items: center; /* Center items vertically */
+  justify-content: space-between; /* Ensure space is distributed evenly */
+  padding: 0 1rem; /* Add horizontal padding */
+}
+
+.SearchBar > .input {
+  color: blue;
+  background-color: #f0f0f0;
+  /* border: 2px solid red; */
+  border-radius: 0.5rem;
+  height: 2rem;
+  flex-grow: 1; /* Allow the input to grow and take available space */
+  margin-left: 1rem; /* Add some space between the h1 and input */
+  padding: 0 0.5rem; /* Add padding inside the input */
+}
+
+.Loading {
+  margin: 25% 25%;
+  font-size: 44px;
+}
+
+h1 {
+  background-color: rgb(183, 196, 1);
+  margin: 0;
+}
+
+.Main {
+  display: flex;
+  justify-content: center;
+  gap: 5rem;
+  margin-left: 1%;
+}
+
+.MovieList {
+  background-color: rgb(164, 119, 206);
+  /* border: 2px solid black; */
+  margin-top: 3rem;
+  width: 25%;
+  height: 70vh;
+  overflow-y: auto;
+}
+
+.MovieDetails {
+  /* background-color: rgb(129, 192, 93); */
+  margin-top: 3rem;
+  /* border: 2px solid black; */
+}
+
+.MovieDetails > img {
+  width: 50%;
+  padding: 5%;
+}
+
+.LoadingMovieDetails {
+  font-size: 44px;
+  margin: 10% 10%;
+}
+
+.section {
+  display: flex;
+  padding: 1rem;
+  gap: 1rem;
+  align-items: center;
+}
+
+.MovieCard {
+  /* border: 2px solid red; */
+  padding: 0.5rem;
+  display: flex;
+  text-wrap: wrap;
+  align-items: center;
+  padding: 0.5rem;
+}
+
+.MovieCard > img {
+  width: 20%;
+}
+
+.MovieCard-h3 {
+  margin-right: 0;
+  padding: 2px;
+  margin-left: 0.5rem;
+}
