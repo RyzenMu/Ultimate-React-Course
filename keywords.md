@@ -1008,4 +1008,42 @@ ONE MORE eFFECT : LISTENING TO KEY PRESS:
 . whenerver we search, we close the current movie.
 . fetching a movie --> ia a event handler function, so there is no need of useEffect.
 . in some situations , we need to fetch on mounting, in those places we require useEffect instead of event listener.
+
+CURRENCY-CONVERTOR-PRACTISE:
+. use isLoading, setISLoading (Loaders) when loads ,
+. disabled is another form of loader , which can be used in input and select tags.
+
+CUSTOM HOOKS, REFS AND MORE STATE:
+. Hooks are easy to learn, hard to master
+. Rules of hooks
+. Deep dive into useState.
+. useRef
+. Custom hooks
+
+REACT HOOKS AND THEIR RULES:
+. Special built-in functions that allow us to "hook" into React internals:
+. Creating and accessing state from Fiber tree.
+. Registering side effects in Fiber tree.
+. Manual DOM selections.
+. access context and many more...
+. Alwaus start with "use"
+. Enable easy reusing of non-visual logic: we can compose multiple hooks into our own custom hooks.
+. Some other hooks are useReducer, useCOntext,
+. some less used hooks are useRef, useCallback, useMemo, useTransition, useDeferredValue, useLayoutEffect, useDebugvalue, useImperativeHandle, useId.
+. only used by library authors useSyncExternalStore, useInsertionEffect.
+
+RULES OF HOOKS:
+. Only call hooks at the top level.
+.. Do not call hooks inside conditionals, loops, nested functions, or after an early return..
+.. This is necessary to ensure that hooks are always called in the same order (hooks rely on this).
+. Only call hooks from React functions.
+.. only call hooks inside a function component or a custom hook.
+.. Do not call hooks from regular functions or class components.
+.. These rules are automatically enforced by React's ESLint rules.
+
+HOOKS RELY ON CALL ORDER:
+. hooks need to called in the same order on every render.
 .
+
+RULES OF HOOKS IN PRACTICE:
+.1. do not use hooks inside conditionals
