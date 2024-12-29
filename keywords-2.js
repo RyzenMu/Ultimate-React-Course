@@ -89,6 +89,12 @@
 *11. custom hooks need to use one or more react hooks.
 * 12. prefix 'use' in all custom hooks.
 *
+* CREATING OUR FIRST CUSTOM HOOK:
+* 1. custom hooks are like public API.
+* 2. arrow functions are not hoisted.
+*
+* CREATING USE LOCAL STORAGE STATE HOOK:
+* 1.
 *
 *
 *
