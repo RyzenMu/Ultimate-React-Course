@@ -1046,4 +1046,42 @@ HOOKS RELY ON CALL ORDER:
 .
 
 RULES OF HOOKS IN PRACTICE:
-.1. do not use hooks inside conditionals
+.1. do not use hooks inside conditionals.
+. 2. do not change order of hooks.
+. 3. do not early return .
+. 4.  fewer hooks rendered.
+. 5. always complete the render of hooks in same order.
+
+MORE DETAILS ON USESTATE:
+. react will take the value of a state while initial rendering, the state can only be changed using setState method.
+. the state will not be automatically changed according to context.
+.   one way of solving the issue is using a useEffect which sets the state.
+. derived state always gets re-rendered.
+. we can always use derived state.
+. but the state is looked only when it mounts.
+. updating state is asynchronous.
+. these asynchronous behaviour is state can be tackled by using a callback function.
+. always use callback to update state.
+ 
+INITIALIZING STATE WITH A CALLBACK (LAZY INITIAL STATE):
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
