@@ -99,6 +99,33 @@
 * CREATING USEKEY HOOK:
 * 1.
 *
+* CREATING USEGEOLOCATION:
+* 1.
+*
+*
+* CLASS BASED REACT:
+* 1. we used to write components as classes..
+* 2. you might encounter them in old codebases
+* 3. feel free to skip this section
+*
+* OUR FIRST CLASS COMPONENT:
+* 1. classy-weather show the weeather of a city for next 6 days.
+* 2. use class keyword class name exrtends React.component to initialize a class.
+* 3. import React from 'react' for all components.
+* 4. export default counter;
+* 5. React.component gives couple of methods one of them is render.
+* 6. render is similar to the function body  of the function compoenent.
+* 7. Every single class component should have a render method.
+* 8. these render function should return some jsx
+* 9. hooks are only for class components.
+* 10. to get state we need to call the constructor function.
+* 11. super method within the constructor call the parent constructor.
+*
+* EVENT HANDLING IN CLASS COMPONENTS:
+* 1. Handler functions are declared as class methods.
+* 2.
+*
+*
 *
 *
 *
