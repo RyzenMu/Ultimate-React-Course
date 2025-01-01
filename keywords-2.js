@@ -123,7 +123,11 @@
 *
 * EVENT HANDLING IN CLASS COMPONENTS:
 * 1. Handler functions are declared as class methods.
-* 2.
+* 2. Some simple llogic like date can be inside our render function.
+*
+*
+* CLASS COMPONENTS VS FUNCTION COMPONENTS:
+* 1.
 *
 *
 *
