@@ -127,9 +127,31 @@
 *
 *
 * CLASS COMPONENTS VS FUNCTION COMPONENTS:
-* 1.31.12.2024
+* 1. create - class for class components
+* 2. create - function for function component
+* 3. Reading props in Function component => Destructuring of props.X
+* 4. Reading props in class component => this.props.X
+* 5. Local state in function component => useState hook
+* 6. Local state in class component => this.setState()
+* 7. Sideeffect in function component => useEffectHook
+* 8. SideEffect in class component => Lifecycle methods
+* 9. Event handlers in() => Functions
+* 10. Event handlers in class => Class Methods
+* 11. Returning JSX () => return jsx from function
+* 12. Returning JSX in class => return jsx from render method.
+* 13. Advantages of function component ,
+*  - Easier to build (less boiler plate code)
+* - Cleaner code : useEffect combines all lifecycle-related code in a single place.
+* - easier to share stateful logic.
+* - we don't need this keyword anymore
 *
+* 14. Adavantages of Class components:
+* - Lifecycle might be easier to underrstand for beginners.
 *
+* 15. binding is usually applied for event handler methods.
+*
+* CHILD TO PARENT COMMUNICATION:
+* 1.
 *
 *
 *

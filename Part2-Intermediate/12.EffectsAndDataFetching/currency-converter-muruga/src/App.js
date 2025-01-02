@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 
-function App() {
+function AppV3() {
   const [inputCurrencyValue, setInputCurrencyValue] = useState(0);
   const [outputCurrencyValue, setOutputCurrencyValue] = useState(0);
   const [data, setData] = useState(null);

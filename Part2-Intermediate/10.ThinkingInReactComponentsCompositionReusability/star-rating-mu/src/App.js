@@ -79,7 +79,7 @@ function FullStar() {
   );
 }
 
-function App() {
+function AppV3() {
   const [rating, setRating] = useState(0);
 
   return (

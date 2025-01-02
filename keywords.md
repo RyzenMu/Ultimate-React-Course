@@ -264,9 +264,9 @@ LIFTING UP THE STATE:
 
 DELETING AN ITEM (updating state in parent component):
 . we cannot directly pass prop from parent to grand child, but only through the child
-. we only can pass state/setstate in App through packingList to Item.
+. we only can pass state/setstate in AppV3 through packingList to Item.
 
-Adding Checkbox to Far Away App
+Adding Checkbox to Far Away AppV3
 
 Derived State:
 . derived state is computed from an existing piece of state or from props.
@@ -590,7 +590,7 @@ there's also batching of multiple setState calls in event handler..
 . the work need to be done in the fiber is a dom update.
 . in this example code is is swapping code from hide to Rate.
 . Next the Modal, Overlay, h3 and button which is another component and not present in updated virtual DOm will be Marked as DOM Deletions.
-. The Video Component will be re-rendered because it is the child compoenent of App Component.
+. The Video Component will be re-rendered because it is the child compoenent of AppV3 Component.
 . but it actuallu dod not change.
 . so as a result of reconciliation
 . The Dom will not be Updated in this case

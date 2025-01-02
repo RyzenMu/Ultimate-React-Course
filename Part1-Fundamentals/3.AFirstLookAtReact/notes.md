@@ -5,7 +5,7 @@ React is Component - based design
 
 React compnent are buttons, search-bars, input fields
 
-Multiple components are combined for a WEb App.
+Multiple components are combined for a WEb AppV3.
 
 React is Declarative- means DOM manipulation automatically done
 

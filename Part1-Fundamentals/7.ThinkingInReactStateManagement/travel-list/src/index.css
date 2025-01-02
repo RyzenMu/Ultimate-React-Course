@@ -138,7 +138,7 @@ input[type="checkbox"] {
   padding: 3.2rem 0;
 }
 
-/* In your App.css file */
+/* In your AppV3.css file */
 .app {
   max-width: 100%; /* Ensure the app container does not exceed the viewport width */
   overflow: hidden; /* Prevent horizontal scroll */

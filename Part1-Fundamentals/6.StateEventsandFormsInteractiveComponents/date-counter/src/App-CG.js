@@ -1,8 +1,8 @@
 import { useState } from "react";
 import "./App.css";
 
-function App() {
-  const [count, setCount] = useState(0); // Move count state to App component
+function AppV3() {
+  const [count, setCount] = useState(0); // Move count state to AppV3 component
 
   return (
     <div className="App">

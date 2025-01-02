@@ -14,7 +14,7 @@ const zenQuotes = [
   "Knowledge is learning something every day. Wisdom is letting go of something every day.",
 ];
 
-function App() {
+function AppV3() {
   return (
     <div className="App">
       {zenQuotes.map((quote, index) => (

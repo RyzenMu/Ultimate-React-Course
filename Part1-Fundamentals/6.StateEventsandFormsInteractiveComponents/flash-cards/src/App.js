@@ -1,7 +1,7 @@
 import "./styles.css";
 import { useState } from "react";
 
-export default function App() {
+export default function AppV3() {
   return (
     <div className="App">
       <FlashCards />
