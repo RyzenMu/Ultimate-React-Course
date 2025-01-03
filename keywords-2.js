@@ -153,6 +153,21 @@
 * CHILD TO PARENT COMMUNICATION:
 * 1.
 *
+* LIFECYCLE METHODS:
+* 1. componentDidMount().
+* 2. componentDidMount executes when initial-rendering completed which is same as useEffect.
+* 3. componentDidMount do not run on re-renders.
+* 4. componentDidUpdate().
+* 5.componentDidUpdate() does not run on initial render.
+* 6. componentDidUpdate() only runs on re-rendering.
+* 7.componentWillUnmount()
+* 8. please create componentWillCOmponent in a component which will be destroyed.
+* 9. Do not use componentWillUnmount in App component.
+* 10. componentWillUnmount is very similar to cleanup function in useEffect.
+* 11. componentWollUnmount will disappear a component.
+* 12. componnetWillMount is used to clear some sideEffects
+* 13.
+*
 *
 *
 *
