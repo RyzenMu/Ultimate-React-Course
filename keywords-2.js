@@ -166,7 +166,10 @@
 * 10. componentWillUnmount is very similar to cleanup function in useEffect.
 * 11. componentWollUnmount will disappear a component.
 * 12. componnetWillMount is used to clear some sideEffects
-* 13.
+*
+*
+* MUWEATHER:
+*
 *
 *
 *
