@@ -52,7 +52,6 @@ function App() {
                     <p>coordinates (lon): {data.city.coord.lon}</p>
                     <p>sunrise: {(new Date(data.city.sunrise * 1000)).toLocaleString()}</p>
                     <p>sunset: {(new Date(data.city.sunset*1000).toLocaleString())}</p>
-                    <p> Today : {date}</p>
                     <p>{
                         data.list.map(item =>
                         <li>{ item.dt_txt } -- {Math.floor((Number(item.main.temp)-273.15)*9/5)+32} -- {item.weather[0].description}</li>)
