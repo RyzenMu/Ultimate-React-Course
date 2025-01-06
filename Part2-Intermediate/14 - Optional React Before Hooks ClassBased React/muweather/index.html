@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>muweather</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: #4e7afa;
+            color: #dee2e6;
+            font-size: 26px;
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+
+        .main {
+            text-align: center;
+            display: flex;
+        }
+
+        .col-1 {
+            width: 18.33%;
+        }
+
+        .box {
+            border: 2px solid lightgray;
+            margin-bottom: 5px;
+            margin-left: 15px;
+        }
+
+        #weather-data {
+            margin: 20px;
+        }
+
+        .weather-item {
+            list-style: none;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>muweather</h1>
+    <div class="main">
+        <div class="col-1">
+            main
+        </div>
+        <div class="col-2">
+            <div id="loading" style="display: none;">Loading...</div>
+            <div id="weather-data">No weather data available</div>
+        </div>
+    </div>
+
+    <script>
+        async function fetchWeatherData() {
+            const weatherDiv = document.getElementById('weather-data');
+            const loadingDiv = document.getElementById('loading');
+            
+            try {
+                loadingDiv.style.display = 'block';
+                weatherDiv.style.display = 'none';
+                
+                const response = await fetch('http://api.openweathermap.org/data/2.5/forecast?id=524901&appid=ee247d2704f870fa08b7f21fa030702e');
+                const data = await response.json();
+                
+                const cityInfo = `
+                    <p>city name: ${data.city.name}</p>
+                    <p>coordinates (lat): ${data.city.coord.lat}</p>
+                    <p>coordinates (lon): ${data.city.coord.lon}</p>
+                    <p>sunrise: ${new Date(data.city.sunrise * 1000).toLocaleString()}</p>
+                    <p>sunset: ${new Date(data.city.sunset * 1000).toLocaleString()}</p>
+                `;
+
+                const weatherList = data.list.map(item => `
+                    <li class="weather-item">
+                        ${item.dt_txt} -- ${Math.floor((Number(item.main.temp) - 273.15) * 9/5) + 32}°F -- ${item.weather[0].description}
+                    </li>
+                `).join('');
+
+                weatherDiv.innerHTML = cityInfo + '<ul>' + weatherList + '</ul>';
+            } catch (error) {
+                console.error('Error fetching weather data:', error);
+                weatherDiv.innerHTML = '<p>Error loading weather data</p>';
+            } finally {
+                loadingDiv.style.display = 'none';
+                weatherDiv.style.display = 'block';
+            }
+        }
+
+        // Fetch weather data when page loads
+        document.addEventListener('DOMContentLoaded', fetchWeatherData);
+    </script>
+</body>
+</html>
