@@ -2,5 +2,6 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Part3-Advanced/16 - The Advanced useReducer Hook/react-quiz" vcs="Git" />
   </component>
 </project>
