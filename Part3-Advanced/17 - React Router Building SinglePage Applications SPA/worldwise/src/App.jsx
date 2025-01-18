@@ -7,11 +7,12 @@ import AppLayout from "./pages/AppLayout.jsx";
 import Login from "./pages/Login.jsx";
 import CityList from "./components/CityList.jsx";
 import {useEffect, useState} from "react";
+import CountryList from "./components/CountryList.jsx";
 
 const BASE_URL = `http://localhost:8000`;
 
 function App() {
-    const [cities, setCities] = useState({});
+    const [cities, setCities] = useState([]);
     const [loading, setLoading] = useState(false);
 
     useEffect(function () {
@@ -33,10 +34,7 @@ function App() {
         fetchCities();
     }, []);
 
-    useEffect(function(){
-        console.log(cities);
-        console.log(loading)
-    } ,[cities]);
+
 
     return (
         <div>
@@ -49,9 +47,9 @@ function App() {
                 <Route path='/login' element={<Login/>} />
                 <Route path='*' element={<PageNotFound/>} />
                 <Route path='/app' element={<AppLayout/>} >
-                    <Route index element={<p>LIST</p>} />
-                    <Route path='cities' element={<CityList />} />
-                    <Route path='countries' element={<p>List of countries</p>} />
+                    <Route index element={<CityList cities={cities} loading={loading} />} />
+                    <Route path='cities' element={<CityList cities={cities} loading={loading} />} />
+                    <Route path='countries' element={<CountryList cities={cities} loading={loading} />} />
                     <Route path='form' element={<p>form</p>} />
                 </Route>
 
