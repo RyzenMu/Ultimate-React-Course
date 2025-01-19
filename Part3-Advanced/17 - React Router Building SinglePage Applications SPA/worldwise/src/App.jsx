@@ -10,6 +10,8 @@ import Login from "./pages/Login.jsx";
 import CityList from "./components/CityList.jsx";
 import CountryList from "./components/CountryList.jsx";
 import City from "./components/City.jsx";
+import Form from "./components/Form.jsx";
+import {Navigate} from "react-router-dom";
 
 const BASE_URL = `http://localhost:8000`;
 
@@ -49,11 +51,11 @@ function App() {
                 <Route path='/login' element={<Login/>} />
                 <Route path='*' element={<PageNotFound/>} />
                 <Route path='/app' element={<AppLayout/>} >
-                    <Route index element={<CityList cities={cities} loading={loading} />} />
+                    <Route index  element={<Navigate replace to={'cities'}/>} />
                     <Route path='cities' element={<CityList cities={cities} loading={loading} />} />
-                    <Route path='cities/:id' element ={<City/>}
+                    <Route path='cities/:id' element ={<City/>} />
                     <Route path='countries' element={<CountryList cities={cities} loading={loading} />} />
-                    <Route path='form' element={<p>form</p>} />
+                    <Route path='form' element={<Form/>} />
                 </Route>
 
             </Routes>
