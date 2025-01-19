@@ -1,4 +1,6 @@
 import {BrowserRouter, Route,Routes} from "react-router-dom";
+import {useEffect, useState} from "react";
+
 import Product from "./pages/Product.jsx";
 import Pricing from "./pages/Pricing.jsx";
 import Homepage from "./pages/Homepage.jsx";
@@ -6,8 +8,8 @@ import PageNotFound from "./pages/PageNotFound.jsx";
 import AppLayout from "./pages/AppLayout.jsx";
 import Login from "./pages/Login.jsx";
 import CityList from "./components/CityList.jsx";
-import {useEffect, useState} from "react";
 import CountryList from "./components/CountryList.jsx";
+import City from "./components/City.jsx";
 
 const BASE_URL = `http://localhost:8000`;
 
@@ -39,7 +41,7 @@ function App() {
     return (
         <div>
             <h1>Hello Router!</h1>
-        <BrowserRouter>
+        <BrowserRouter future={{ v7_startTransition: true }}>
             <Routes>
                 <Route index element={<Homepage/>} />
                 <Route path='/product' element={<Product/>} />
@@ -49,6 +51,7 @@ function App() {
                 <Route path='/app' element={<AppLayout/>} >
                     <Route index element={<CityList cities={cities} loading={loading} />} />
                     <Route path='cities' element={<CityList cities={cities} loading={loading} />} />
+                    <Route path='cities/:id' element ={<City/>}
                     <Route path='countries' element={<CountryList cities={cities} loading={loading} />} />
                     <Route path='form' element={<p>form</p>} />
                 </Route>

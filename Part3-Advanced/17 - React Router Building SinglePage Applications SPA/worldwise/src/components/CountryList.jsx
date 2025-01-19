@@ -4,14 +4,22 @@ import CountryItem from "./CountryItem.jsx";
 import Message from "./Message.jsx";
 /* eslint-disable react/prop-types */
 
-
-function CountryList({loading, countries}) {
+/* eslint-disable react/prop-types */
+function CountryList({loading, cities}) {
+    console.log(cities);
     if (loading) return <Spinner />
 
-    if (!countries || countries.length <1) return <Message message='Add your city by clicking  on a city on the map'/>
+    if (!cities.length) return <Message message='Add your city by clicking  on a city on the map'/>
+
+    const countries = cities.reduce((arr, city) =>{
+        if(!arr.map(el=>el.country).includes(city.country)){
+            return [...arr, {country: city.country, emoji: city.emoji}];
+        }else return arr;
+
+        }, [])
     return (
         <ul className={styles.countryList}>
-            {countries.map((city, i)=> <CountryItem city={city} key={i} />)}
+            {countries.map((country, i)=> <CountryItem country={country} key={i} />)}
         </ul>
     );
 }
