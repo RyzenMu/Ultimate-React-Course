@@ -12,6 +12,8 @@ import City from "./components/City.jsx";
 import Form from "./components/Form.jsx";
 import {Navigate} from "react-router-dom";
 import {CitiesProvider} from "./contexts/CitiesContext.jsx";
+import {AuthProvider} from "./contexts/FakeAuthContext.jsx";
+import ProtectedRoute from "./pages/ProtectedRoute..jsx";
 
 
 function App() {
@@ -20,25 +22,26 @@ function App() {
     return (
         <div>
             <h1>Hello Router!</h1>
-            <CitiesProvider>
-                <BrowserRouter future={{v7_startTransition: true}}>
-                    <Routes>
-                        <Route index element={<Homepage/>}/>
-                        <Route path='/product' element={<Product/>}/>
-                        <Route path='/pricing' element={<Pricing/>}/>
-                        <Route path='/login' element={<Login/>}/>
-                        <Route path='*' element={<PageNotFound/>}/>
-                        <Route path='/app' element={<AppLayout/>}>
-                            <Route index element={<Navigate replace to={'cities'}/>}/>
-                            <Route path='cities' element={<CityList/>}/>
-                            <Route path='cities/:id' element={<City/>}/>
-                            <Route path='countries' element={<CountryList/>}/>
-                            <Route path='form' element={<Form/>}/>
-                        </Route>
+            <AuthProvider>
+                <CitiesProvider>
+                    <BrowserRouter future={{v7_startTransition: true}}>
+                        <Routes>
+                            <Route index element={<Homepage/>}/>
+                            <Route path='/product' element={<Product/>}/>
+                            <Route path='/pricing' element={<Pricing/>}/>
+                            <Route path='/login' element={<Login/>}/>
+                            <Route path='*' element={<PageNotFound/>}/>
+                            <Route path='/app' element={<ProtectedRoute><AppLayout/></ProtectedRoute>}>
+                                <Route index element={<Navigate replace to={'cities'}/>}/>
+                                <Route path='cities' element={<CityList/>}/>
+                                <Route path='cities/:id' element={<City/>}/>
+                                <Route path='countries' element={<CountryList/>}/>
+                                <Route path='form' element={<Form/>}/>
+                            </Route>
 
-                    </Routes>
-                </BrowserRouter>
-            </CitiesProvider>
+                        </Routes>
+                    </BrowserRouter>
+                </CitiesProvider></AuthProvider>
         </div>
     );
 }
