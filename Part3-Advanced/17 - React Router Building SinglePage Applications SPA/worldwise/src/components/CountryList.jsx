@@ -2,10 +2,10 @@ import styles from './CountryList.module.css'
 import Spinner from "./Spinner.jsx";
 import CountryItem from "./CountryItem.jsx";
 import Message from "./Message.jsx";
-/* eslint-disable react/prop-types */
+import {useCities} from "../contexts/CitiesContext.jsx";
 
-/* eslint-disable react/prop-types */
-function CountryList({loading, cities}) {
+function CountryList() {
+    const {cities, loading} = useCities()
     console.log(cities);
     if (loading) return <Spinner />
 
