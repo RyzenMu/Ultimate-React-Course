@@ -122,7 +122,7 @@ const startDataLight = [
   },
   {
     duration: '2 nights',
-    value: 0,
+    value: 3,
     color: '#f97316',
   },
   {
@@ -132,17 +132,17 @@ const startDataLight = [
   },
   {
     duration: '4-5 nights',
-    value: 0,
+    value: 5,
     color: '#84cc16',
   },
   {
     duration: '6-7 nights',
-    value: 0,
+    value: 9,
     color: '#22c55e',
   },
   {
     duration: '8-14 nights',
-    value: 0,
+    value: 7,
     color: '#14b8a6',
   },
   {

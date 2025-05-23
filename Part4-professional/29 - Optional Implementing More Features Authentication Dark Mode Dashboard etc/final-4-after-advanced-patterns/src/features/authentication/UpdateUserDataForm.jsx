@@ -16,6 +16,8 @@ function UpdateUserDataForm() {
     },
   } = useUser();
 
+  const {updateUser, isUpdating} = useUpdateUser();
+
   const [fullName, setFullName] = useState(currentFullName);
   const [avatar, setAvatar] = useState(null);
 
@@ -28,7 +30,7 @@ function UpdateUserDataForm() {
     updateUser(
       { fullName, avatar },
       {
-        onSuccess: () => {
+        onSuccess: ({user}) => {
           setAvatar(null);
           // Resetting form using .reset() that's available on all HTML form elements, otherwise the old filename will stay displayed in the UI
           e.target.reset();

@@ -37,7 +37,7 @@ const NoActivity = styled.p`
   margin-top: 0.8rem;
 `;
 
-function Today() {
+function TodayActivity() {
   const { isLoading, stays } = useActivityTodayStays();
 
   return (
@@ -51,8 +51,8 @@ function Today() {
       {!isLoading ? (
         stays?.length > 0 ? (
           <TodayList>
-            {stays.map((stay) => (
-              <TodayItem key={stay.id} stay={stay} />
+            {activities.map((activity) => (
+              <TodayItem key={activity.id} activity={activity} />
             ))}
           </TodayList>
         ) : (
@@ -65,7 +65,7 @@ function Today() {
   );
 }
 
-export default Today;
+export default TodayActivity;
 
 const OLDdata = [
   {

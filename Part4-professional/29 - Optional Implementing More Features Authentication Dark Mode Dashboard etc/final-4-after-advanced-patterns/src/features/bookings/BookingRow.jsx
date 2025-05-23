@@ -8,6 +8,8 @@ import {
   HiArrowDownOnSquare,
 } from 'react-icons/hi2';
 
+import { useNavigate } from 'react-router-dom';
+
 import Tag from 'ui/Tag';
 import Menus from 'ui/Menus';
 import Modal from 'ui/Modal';
@@ -113,6 +115,14 @@ function BookingRow({
 
       <Amount>{formatCurrency(totalPrice)}</Amount>
 
+      <Menus.Menu>
+        <Menus.toggle id={bookingId} />
+        <Menus.List id={bookingId}>
+          <Menus.Button icon={<HiEye/>} onClick={()=>navigate(`/bookings/${bookingId}`)}>
+          see details </Menus.Button>
+        </Menus.List>
+      </Menus.Menu>
+
       {/* VIDEO we could export this into own component... */}
       <Modal>
         <Menus.Menu>
@@ -124,13 +134,18 @@ function BookingRow({
             >
               See details
             </Menus.Button>
+            {status === 'unconfirmed' && <Menus.Button
+              onClick={() => navigate(`/chequein/${bookingId}`)}
+              icon={<HiArrowDownOnSquare />}
+            >
+              Check In
+            </Menus.Button>}
 
-            {status === 'unconfirmed' && (
+            {status === 'checked-in' && (
               <Menus.Button
-                onClick={() => navigate(`/checkin/${bookingId}`)}
-                icon={<HiArrowDownOnSquare />}
+                onClick={checkout(bookingId)} disabled={isCheckingOut}
               >
-                Check in
+                Check out
               </Menus.Button>
             )}
 

@@ -27,8 +27,8 @@ const Guest = styled.div`
   font-weight: 500;
 `;
 
-function TodayItem({ stay }) {
-  const { id, status, guests, numNights } = stay;
+function TodayItem({ activity }) {
+  const { id, status, guests, numNights } = activity;
 
   const statusToAction = {
     unconfirmed: {
@@ -62,6 +62,7 @@ function TodayItem({ stay }) {
       <div>{numNights} nights</div>
 
       {statusToAction[status].button}
+      {status === 'checked-in' && <CheckoutButton bookingId={id}/>}
     </StyledTodayItem>
   );
 }
